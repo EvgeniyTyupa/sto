@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face{
+  font-family: 'Gilroy';
+  src: local('Girloy'), url(./Assets/Fonts/Gilroy-Black.ttf) format('truetype');
+}
+@font-face{
+  font-family: 'Gilroy-Light';
+  src: local('Girloy-Light'), url(./Assets/Fonts/Gilroy-Light.ttf) format('truetype');
+}
+@font-face{
+  font-family: 'Gilroy-Medium';
+  src: local('Girloy-Medium'), url(./Assets/Fonts/Gilroy-Medium.ttf) format('truetype');
+}
+
+
+@font-face{
+  font-family: 'GothamPro';
+  src: local('GothamPro'), url(./Assets/Fonts/GothamPro.ttf) format('truetype');
+}
+@font-face{
+  font-family: 'GothamPro-Bold';
+  src: local('GothamPro-Bold'), url(./Assets/Fonts/GothamPro-Bold.ttf) format('truetype');
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

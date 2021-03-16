@@ -1,0 +1,432 @@
+.main{
+    width: 100%;
+}
+
+/* TITLE */
+.title{
+    width: 100%;
+    height: calc(100vh - 167px);
+    background-image: url("../../Assets/Images/Source/home.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+
+}
+.title h1{
+    font-family: 'GothamPro-Bold';
+    font-size: 70px;
+    line-height: 74px;
+    letter-spacing: -0.015em;
+    margin-block-end: 16px;
+    margin-block-start: 0;
+}
+.title p{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: 'Gilroy-Medium';
+    margin-left: 5px;
+}
+.title button{
+    background-color: #35AAF9;
+    color: white;
+    font-family: 'Gilroy-Medium';
+    font-size: 20px;
+    text-transform: initial;
+    width: 280px;
+    height: 75px;
+    border-radius: 0;
+    margin-top: 58px;
+}
+.title button:hover{
+    background-color: #2194e0;
+}
+
+/* SERVICES */
+
+.services{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.services h2{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-top: 192px;
+    font-family: 'GothamPro-Bold';
+    font-size: 40px;
+    letter-spacing: -0.015em;
+}
+.options{
+    display: flex;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+.options button{
+    transition: initial;
+    transition-duration: .6s !important;
+    padding: 0 !important;
+    width: 15%;
+    text-transform: initial;
+}
+.options button:hover{
+    background-color: transparent;
+    transform: scale(1.05);
+}
+.butContainer{
+    border: 1px solid #CECECE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    justify-content: center;
+    font-family: 'Gilroy-Medium';
+    font-size: 20px;
+    transition-duration: .3s;
+}
+.activeOption{
+    border: 1px solid #35AAF9;
+}
+.activeBlueBlock{
+    width: 8%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #35AAF9;
+    animation-duration: .2s;
+    animation-name: move;
+}
+
+@keyframes move{
+    from{
+        width: 0;
+    }
+    to{
+        width: 8%;
+    }
+}
+
+.serviceInfo{
+    margin-top: 33px;
+    align-self: flex-start;
+    min-height: 240px;
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.selectedInfo{
+    display: flex;
+    align-items: flex-start;
+}
+.selectedInfo img{
+    margin-right: 6px;
+}
+.selectedInfo span{
+    font-size: 18px;
+    font-family: 'Gilroy-Light';
+    line-height: 21px;
+    width: 420px;
+}
+.car{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.carBack{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    height: 365px;
+}
+.carInteractive{
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.carInteractive button{
+    position: absolute;
+    z-index: 2;
+    background: white;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    transition-duration: .3s !important;
+}
+.carInteractive button svg{
+    width: 35px;
+}
+.carInteractive button:hover{
+    background: #2194e0;
+}
+.carInteractive svg path{
+    transition-duration: .3s;
+}
+.carInteractive button:hover svg path{
+    fill: white;
+}
+
+/* CAR BUTTONS */
+.engineBut{
+    transform: translateX(80px) translateY(40px);
+}
+.oilBut{
+    transform: translateX(185px) translateY(20px);
+}
+.batteryBut{
+    transform: translateX(290px) translateY(10px);
+}
+.transBut{
+    transform: translateX(420px) translateY(185px);
+}
+.diagBut{
+    transform: translateX(620px) translateY(185px);
+}
+.tireBut{
+    transform: translateX(920px) translateY(155px);
+}
+
+.activeCarBut{
+    background: #35AAF9 !important;
+}
+.activeCarBut svg path{
+    fill: white;
+}
+
+.carImg{
+    position: relative;
+    top: -150px;
+}
+.services a{
+    position: relative;
+    top: -115px;
+    margin-left: auto;
+    width: 280px;
+    height: 75px;
+    background: #35AAF9;
+    transition-duration: .3s;
+    font-size: 20px;
+    color: white;
+    font-family: 'Gilroy-Medium';
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+}
+.services a:hover{
+    background: #2194e0;
+    transform: scale(1.01);
+}
+
+/* ABOUT US */
+.aboutus{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+.aboutus h2{
+    margin-block-start: 0;
+    margin-block-end: 90px;
+    font-family: 'GothamPro-Bold';
+    font-size: 40px;
+    letter-spacing: -0.015em;
+}
+.aboutInfo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.aboutText{
+    width: 45%;
+    margin-left: 25px;
+}
+.aboutText h3{
+    font-family: 'Gilroy';
+    font-size: 30px;
+    line-height: 36px;
+    margin-block-start: 0;
+    margin-block-end: 50px;
+}
+.aboutText p{
+    margin-block-end: 0;
+    margin-block-start: 0;
+    color: #292929;
+    font-size: 18px;
+    font-family: 'Gilroy-Light';
+}
+.aboutText p + p{
+    margin-top: 20px;
+}
+.aboutInfo img{
+    margin-right: 25px;
+}
+.points{
+    margin-top: 90px;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 90px;
+}
+.pointsLine{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 66px;
+}
+.pointBlock{
+    display: flex;
+    width: 31%;
+    align-items: center;
+}
+.pointBlock img{
+    margin-right: 20px;
+    width: 83px;
+}
+.pointBlockText h4{
+    font-size: 25px;
+    font-family: 'Gilroy-Medium';
+    margin-block-end: 14px;
+    margin-block-start: 0;
+}
+.pointBlockText span{
+    font-size: 18px;
+    font-family: 'Gilroy-Light';
+}
+
+
+/* STATISTIC */
+.statistic{
+    width: 100%;
+    height: 377px;
+    background-image: url("../../Assets/Images/Source/number_back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.stat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.stat span{
+    font-size: 70px;
+    font-family: 'Gilroy-Medium';
+}
+.stat p{
+    font-size: 25px;
+    font-family: 'Gilroy-Light';
+    margin-block-end: 0;
+    margin-block-start: 10px;
+}
+
+/* SALE */
+.sale{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 170px;
+}
+.saleHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.saleHeader h2{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: 'GothamPro-Bold';
+    font-size: 40px;
+    letter-spacing: -0.015em;
+}
+.saleHeader p{
+    color: #35AAF9;
+    font-size: 68px;
+    margin-block-end: 15px;
+    margin-block-start: 15px;
+}
+.saleHeader span{
+    font-size: 20px;
+    font-family: 'GothamPro-Bold';
+    letter-spacing: -0.015em;
+}
+.terms{
+    display: flex;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    align-items: top;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.termBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.termBlock span{
+    margin-top: 21px;
+    font-size: 18px;
+    font-family: 'Gilroy-Light';
+}
+
+/* COMMENTS */
+.comments{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    margin-top: 154px;
+}
+.comments h2{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: 'GothamPro-Bold';
+    font-size: 40px;
+    letter-spacing: -0.015em;
+}
+.slider{
+    width: 100%;
+}
