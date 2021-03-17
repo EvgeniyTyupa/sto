@@ -1,0 +1,47 @@
+.main{
+    width: 100%;
+    height: 242px;
+    background-image: url("../../Assets//Images/Source/header_back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.navigation{
+    display: flex;
+    color: white;
+    font-size: 16px;
+}
+.navigation a{
+    color: white;
+    opacity: .7;
+    text-decoration: none;
+    transition-duration: .3s;
+    font-family: 'Gilroy-Light';
+}
+.navigation a:hover{
+    opacity: .9;
+}
+.navEl span{
+    margin-left: 12px;
+    margin-right: 12px;
+    opacity: .7;
+}
+.activeRoute a{
+    opacity: 1 !important;
+}
+.activeRoute a:hover{
+    opacity: 1 !important;
+}
+
+.main h2{
+    font-size: 40px;
+    color: white;
+    font-family: 'GothamPro-Bold';
+    margin-block-start: 58px;
+    margin-block-end: 0;
+    text-transform: uppercase;
+}

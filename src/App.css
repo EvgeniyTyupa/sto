@@ -4,4 +4,27 @@ html{
 body{
   margin: 0;
   font-family: 'Gilroy';
+  overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  opacity: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+  opacity: 0;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #000426;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0;
 }

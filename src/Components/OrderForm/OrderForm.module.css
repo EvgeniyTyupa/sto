@@ -1,0 +1,49 @@
+.main{
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+}
+.inputsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 32%;
+}
+.block h4{
+    font-size: 25px;
+    font-family: 'Gilroy-Medium';
+}
+.field{
+    width: 100%;
+}
+.field + .field{
+    margin-top: 20px;
+}
+.field div{
+    width: 100%;
+}
+.field input{
+    width: 100%;
+}
+.submit{
+    margin-top: 60px !important;
+    align-self: flex-end;
+    width: 280px;
+    height: 75px;
+    color: white !important;
+    font-family: 'Gilroy-Medium' !important;
+    font-size: 20px !important;
+    background-color: #35AAF9 !important;
+    border-radius: 0 !important;
+    text-transform: initial !important;
+    transition-duration: .5s !important;
+}
+.submit:hover{
+    background-color: #2194e0 !important;
+}

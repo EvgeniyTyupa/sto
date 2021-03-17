@@ -1,9 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 import classes from './Main.module.css';
+import { Helmet } from "react-helmet";
 import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import CountUp from 'react-countup';
 import Slider from 'infinite-react-carousel';
+
 
 import { oil } from '../../Assets/Images/Icons/oil.js';
 import { tire } from '../../Assets/Images/Icons/tire.js';
@@ -28,10 +33,16 @@ import buy from '../../Assets/Images/Source/buy.svg';
 import user1 from '../../Assets/Images/Source/user1.svg';
 import user2 from '../../Assets/Images/Source/user2.svg';
 import Comment from '../../Components/Comment/Comment';
+import OrderForm from '../../Components/OrderForm/OrderForm';
+import Footer from '../../Components/Footer/Footer';
 
 const Main = (props) => {
     const [currentOption, setCurrentOption] = useState(null);
     const countRef = useRef();
+
+    useEffect(() => {
+        Aos.init({ duration: 1500 });
+    }, []);
 
     const comments = [
         {
@@ -97,24 +108,34 @@ const Main = (props) => {
 
     const [isStartCounter, setIsStartCounter] = useState(false);
 
+    function isRightYPosition(){
+        if(window.scrollY >= countRef.current.getBoundingClientRect().top - 20){
+            setIsStartCounter(true);
+        }
+    }
+
     useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if(window.scrollY >= countRef.current.getBoundingClientRect().top - 20){
-                setIsStartCounter(true);
-            }
-        })
+        window.addEventListener('scroll', isRightYPosition);
+        return function cleanup(){
+            window.removeEventListener('scroll', isRightYPosition);
+            setCurrentOption(null);
+        }
     },[]);
 
     return(
         <div className={classes.main}>
+            <Helmet
+                htmlAttributes={{"lang": "en", "amp": undefined}}
+                title='СТО на Бульваре Шевченко | Главная'
+                meta={[{"name": "description", "content": "СТО на Бульваре Шевченко. Запорожье, ул. Независимой Украины 56. Пн - Пт: с 09:00 до 19:00   Сб: с 09:00 до 18:00. +38 (066) 197 39 04. +38 (098) 038 04 34"}]}/>
             <div className={classes.title}>
-                <h1>АВТОСЕРВИС <br/> В ЗАПОРОЖЬЕ</h1>
-                <p>Ваше авто в надежных руках</p>
-                <Button>Записаться</Button>
+                <h1 data-aos="fade-right">АВТОСЕРВИС <br/> В ЗАПОРОЖЬЕ</h1>
+                <p data-aos="fade" data-aos-duration="1500" data-aos-delay="800">Ваше авто в надежных руках</p>
+                <Button data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">Записаться</Button>
             </div>
             <div className={classes.services}>
-                <h2>НАШИ УСЛУГИ</h2>
-                <div className={classes.options}>
+                <h2 data-aos="fade-up">НАШИ УСЛУГИ</h2>
+                <div className={classes.options} data-aos="fade-up">
                     {serviceOptions.map((item, index) => (
                         <Button key={"but"+index} onClick={()=>{setCurrentOption(item)}}>
                             <div className={classes.butContainer + " " + (currentOption && currentOption.id === index && classes.activeOption)}>
@@ -127,7 +148,7 @@ const Main = (props) => {
                 </div>
                 <div className={classes.serviceInfo}>
                     {currentOption &&
-                    <div className={classes.selectedInfo}>
+                    <div className={classes.selectedInfo} data-aos="zoom-out" data-aos-duration="800">
                         <img src={info}/>
                         <span>{currentOption.info}</span>
                     </div>}
@@ -152,13 +173,13 @@ const Main = (props) => {
                         <Button onClick={()=>{setCurrentOption(serviceOptions[1])}} className={classes.tireBut + " " + ((currentOption && currentOption.id == serviceOptions[1].id) && classes.activeCarBut)}>
                             {tire}
                         </Button>
-                        <img src={car} className={classes.carImg}/>
+                        <img src={car} className={classes.carImg} data-aos="fade-left" data-aos-duration="1000"/>
                     </div>
                     <img src={car_back} className={classes.carBack}/>
                 </div>
-                <NavLink to="/services">Подробнее</NavLink>
+                <NavLink to="/services" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Подробнее</NavLink>
             </div>
-            <div className={classes.aboutus}>
+            <div className={classes.aboutus} data-aos="fade-down" data-aos-delay="100">
                 <h2>О НАС</h2>
                 <div className={classes.aboutInfo}>
                     <img src={about}/>
@@ -177,7 +198,7 @@ const Main = (props) => {
                         </p>
                     </div>
                 </div>
-                <div className={classes.points}>
+                <div className={classes.points} data-aos="fade-left">
                     <div className={classes.pointsLine}>
                         <div className={classes.pointBlock}>
                             <img src={navigation}/>
@@ -227,19 +248,19 @@ const Main = (props) => {
                 </div>
             </div>
             <div className={classes.statistic} ref={countRef}>
-                <div className={classes.stat}>
+                <div className={classes.stat} data-aos="fade-down">
                     <CountUp end={98} start={isStartCounter} duration={3} suffix="%" redraw={isStartCounter}/>
                     <p>Довольных <br/> клиентов</p>
                 </div>
-                <div className={classes.stat}>
+                <div className={classes.stat} data-aos="fade-down">
                     <CountUp end={9} start={isStartCounter} duration={3}/>
                     <p>Отремонтированных <br/> авто в день</p>
                 </div>
-                <div className={classes.stat}>
+                <div className={classes.stat} data-aos="fade-down">
                     <CountUp end={986} start={isStartCounter} duration={3}/>
                     <p>Проведенных ТО <br/> в год</p>
                 </div>
-                <div className={classes.stat}>
+                <div className={classes.stat} data-aos="fade-down">
                     <div>
                         <CountUp end={10} start={isStartCounter} duration={3}/>
                         &nbsp;
@@ -250,12 +271,12 @@ const Main = (props) => {
                 </div>
             </div>
             <div className={classes.sale}>
-                <div className={classes.saleHeader}>
+                <div className={classes.saleHeader} data-aos="zoom-in" data-aos-duration="800">
                     <h2>КАК ПОЛУЧИТЬ СКИДКУ</h2>
                     <p>-15%</p>
                     <span>НА ШИНОМОНТАЖ ИЛИ РАЗВАЛ-СХОЖДЕНИЕ</span>
                 </div>
-                <div className={classes.terms}>
+                <div className={classes.terms} data-aos="fade" data-aos-delay="100">
                     <div className={classes.termBlock}>
                         <img src={phone}/>
                         <span>Позвонить на СТО <br/> на Бульваре Шевченко.</span>
@@ -274,12 +295,17 @@ const Main = (props) => {
                     </div>
                 </div>
             </div>
-            <div className={classes.comments}>
-                <h2>Отзывы</h2>
-                <Slider className={classes.slider} dots infinite slidesToShow={2} autoplay arrows={false} swipe >
+            <div className={classes.comments} data-aos="fade">
+                <h2>ОТЗЫВЫ</h2>
+                <Slider className={classes.slider} dotsScroll={2} centerMode dots infinite slidesToShow={2} autoplaySpeed={5000} duration={300} autoplay arrows={false} swipe >
                     {comments.map((item, index) => <Comment key={"comment" + index} item={item}/>)}
                 </Slider>
             </div>
+            <div className={classes.order} data-aos="fade-down">
+                <h2>ЗАПИСАТЬСЯ НА СЕРВИС</h2>
+                <OrderForm/>
+            </div>
+            <Footer map={true} contacts={true}/>
         </div>
     );
 }

@@ -1,0 +1,90 @@
+.main{
+    width: 100%;
+    overflow: hidden;
+}
+.map{
+    width: 100%;
+    position: relative;
+    height: 495px;
+}
+.main iframe{
+    width: 100%;
+    height: 495px;
+    border: none;
+    outline: none;
+}
+.contacts{
+    position: absolute;
+    background-color: #000426;
+    margin-left: 100px;
+    color: white;
+    width: 460px;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10 !important;
+}
+.contacts h2{
+    margin-block-start: 0;
+    margin-block-end: 0px;
+    font-family: 'GothamPro-Bold';
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: -0.015em;
+}
+.contactBlock{
+    display: flex;
+    align-items: top;
+    font-size: 18px;
+    font-family: 'Gilroy-Medium';
+    margin-top: 30px;
+}
+.contactBlock img{
+    margin-right: 15px;
+}
+.textBlock{
+    display: flex;
+    flex-direction: column;
+}
+.contactBlock a{
+    color: white;
+    text-decoration: none;
+}
+.contactBlock a:hover{
+    text-decoration: underline;
+}
+
+.footer{
+    color: white;
+    background-color: #000426;
+    height: max-content;
+    padding: 80px 100px;
+    box-sizing:  border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.links a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'GothamPro-Bold';
+    margin-bottom: 25px;
+    transition-duration: .3s;
+}
+.links a:hover{
+    transform: scale(1.02);
+}
+.footer .contactBlock{
+    margin-top: 0;
+    margin-bottom: 25px;
+}
