@@ -5,6 +5,8 @@ import classes from './Services.module.css';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+import Points from '../../Components/Points/Points';
+import Footer from '../../Components/Footer/Footer';
 
 const StyledService = styled.div`
     background-image: ${({ background }) => `url(${background})`};
@@ -45,6 +47,11 @@ const Services = (props) => {
             <div className={classes.services}>
                 {servicesArr}
             </div>
+            <div className={classes.points}>
+                <h2>ПОЧЕМУ ВЫБИРАЮТ НАС</h2>
+                <Points/>
+            </div>
+            <Footer map={true} contacts={true}/>
         </div>
     );
 }

@@ -1,0 +1,103 @@
+.contacts{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 120px;
+    padding-bottom: 170px;
+}
+.form{
+    box-shadow: 0px 5px 100px rgba(0, 0, 0, 0.1);
+    padding: 52px 96px;
+    width: 45%;
+}
+.form h2{
+    font-size: 35px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    font-family: 'GothamPro-Bold';
+}
+.form p{
+    font-family: 'Gilroy-Light';
+    font-size: 16px;
+    line-height: 19px;
+    margin-block-start: 10px;
+    margin-block-end: 37px;
+    color: #BABABA;
+}
+.form form{
+    width: 100%;
+}
+.field{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 21px;
+}
+.fieldTextArea{
+    width: 100%;
+}
+.fieldTextArea div{
+    width: 100%;
+}
+.form form button{
+    background-color: #35AAF9;
+    color: white;
+    font-family: 'Gilroy-Medium';
+    font-size: 20px;
+    text-transform: initial;
+    width: 280px;
+    height: 60px;
+    border-radius: 0;
+    margin-top: 30px;
+}
+.form form button:hover{
+    background-color: #2194e0;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+.infoLine{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.infoBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    text-align: center;
+}
+.infoBlock h5{
+    font-size: 20px;
+    font-weight: 'Gilroy';
+    margin-block-end: 8px;
+    margin-block-start: 18px;
+}
+.infoBlock address{
+    font-style: normal;
+    font-size: 16px;
+    font-family: 'Gilroy';
+}
+.infoBlock a{
+    text-decoration: none;
+    color: black;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.infoBlock a:hover{
+    text-decoration: underline;
+}
+.infoBlock p{
+    margin-block-start: 0;
+    margin-block-end: 5px;
+    font-size: 16px;
+    font-family: 'Gilroy';
+}

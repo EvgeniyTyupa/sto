@@ -1,0 +1,33 @@
+.main{
+    width: 100%;
+}
+
+.infoMain{
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    display: flex;
+}
+.leftSide{
+    width: 20%;
+}
+.menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.menuItem a{
+    font-size: 20px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    transition-duration: .3s;
+}
+.activeLink{
+    color: white !important;
+    background-color: #35AAF9;
+}

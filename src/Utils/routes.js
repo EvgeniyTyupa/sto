@@ -46,5 +46,11 @@ export const routes = [
         header: 'Ремонт тормозной системы',
         path: '/services/brakes',
         text: 'Ремонт тормозной системы'
+    },
+    {
+        value: 'contacts',
+        header: 'Контакты',
+        path: '/contacts',
+        text: 'Контакты'
     }
 ];

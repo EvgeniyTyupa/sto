@@ -20,21 +20,19 @@ import car from '../../Assets/Images/Source/car.svg';
 import car_back from '../../Assets/Images/Source/car_back.jpg';
 import info from '../../Assets/Images/Icons/info.svg';
 import about from '../../Assets/Images/Source/about.jpg';
-import navigation from '../../Assets/Images/Source/navigation.svg';
-import maintenance from '../../Assets/Images/Source/maintenance.svg';
-import mechanic from '../../Assets/Images/Source/mechanic.svg';
-import disk from '../../Assets/Images/Source/disk.svg';
-import time from '../../Assets/Images/Source/time.svg';
-import call from '../../Assets/Images/Source/call.svg';
+
 import phone from '../../Assets/Images/Source/phone.svg';
 import chat from '../../Assets/Images/Source/chat.svg';
 import calendar from '../../Assets/Images/Source/calendar.svg';
 import buy from '../../Assets/Images/Source/buy.svg';
 import user1 from '../../Assets/Images/Source/user1.svg';
 import user2 from '../../Assets/Images/Source/user2.svg';
+import user3 from '../../Assets/Images/Source/user3.svg';
+import user4 from '../../Assets/Images/Source/user4.svg';
 import Comment from '../../Components/Comment/Comment';
 import OrderForm from '../../Components/OrderForm/OrderForm';
 import Footer from '../../Components/Footer/Footer';
+import Points from '../../Components/Points/Points';
 
 const Main = (props) => {
     const [currentOption, setCurrentOption] = useState(null);
@@ -58,12 +56,12 @@ const Main = (props) => {
         {
             name: "Иван",
             text: "Нашел через интернет, пол года назад, очень близко живу и по этому обслуживают только у этих ребят - быстро и качественно, всегда пытаются отнестись с пониманием. Всегда оставляю им свою машину и не боюсь что с ней что-то станет. Сегодня забрал свой автомобиль после капитального ремонта и хоть это длилось две недели, но это виноват мой поставщик запчастей. Спасибо вам ребята.",
-            img: user1
+            img: user3
         },
         {
             name: "Егор",
             text: "Летом заехал на этот автосервис. Изначально подумал: центр - цены космос, потом подумал, что и ехать особо не знаю куда и решил починится у них. Такое хорошее отношение и качественное обслуживание редко встречается. Продиагностировали, заменили стойку, отрегулировали фары. Вывод такой: при необходимости поеду опять туда же!!",
-            img: user2
+            img: user4
         }
     ];
 
@@ -109,8 +107,10 @@ const Main = (props) => {
     const [isStartCounter, setIsStartCounter] = useState(false);
 
     function isRightYPosition(){
-        if(window.scrollY >= countRef.current.getBoundingClientRect().top - 20){
-            setIsStartCounter(true);
+        if(countRef.current){
+            if(window.scrollY >= countRef.current.getBoundingClientRect().top - 20){
+                setIsStartCounter(true);
+            }
         }
     }
 
@@ -198,53 +198,8 @@ const Main = (props) => {
                         </p>
                     </div>
                 </div>
-                <div className={classes.points} data-aos="fade-left">
-                    <div className={classes.pointsLine}>
-                        <div className={classes.pointBlock}>
-                            <img src={navigation}/>
-                            <div className={classes.pointBlockText}>
-                                <h4>Расположение</h4>
-                                <span>Мы находимся в самом центре города</span>
-                            </div>
-                        </div>
-                        <div className={classes.pointBlock}>
-                            <img src={maintenance}/>
-                            <div className={classes.pointBlockText}>
-                                <h4>Гарантия</h4>
-                                <span>Мы предоставляем гарантию на все проведенные нами работы</span>
-                            </div>
-                        </div>
-                        <div className={classes.pointBlock}>
-                            <img src={mechanic}/>
-                            <div className={classes.pointBlockText}>
-                                <h4>Опыт</h4>
-                                <span>Каждый наш мастер обладает более чем десятилетним стажем</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={classes.pointsLine}>
-                        <div className={classes.pointBlock}>
-                            <img src={disk}/>
-                            <div className={classes.pointBlockText}>
-                                <h4>Качество</h4>
-                                <span>Грамотный подбор масел и автозапчастей для любых автомобилей</span>
-                            </div>
-                        </div>
-                        <div className={classes.pointBlock}>
-                            <img src={time}/>
-                            <div className={classes.pointBlockText}>
-                                <h4>Сроки</h4>
-                                <span>В 90% случаев мы выполняем ремонт или сервис авто в тот же день</span>
-                            </div>
-                        </div>
-                        <div className={classes.pointBlock}>
-                            <img src={call}/>
-                            <div className={classes.pointBlockText}>
-                                <h4>Всегда на связи</h4>
-                                <span>Вы можете быть всегда на связи с закрепленным за Вами мастером</span>
-                            </div>
-                        </div>
-                    </div>
+                <div className={classes.points}>
+                    <Points/>
                 </div>
             </div>
             <div className={classes.statistic} ref={countRef}>

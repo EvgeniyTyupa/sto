@@ -45,18 +45,18 @@ const OrderForm = (props) => {
                 <div className={classes.block}>
                     <h4>Контактные данные</h4>
                     <div className={classes.field}>
-                        <TextField label="Ваше имя" variant="outlined" name="name" ref={register}/>
+                        <TextField label="Ваше имя" variant="outlined" name="name" inputRef={register}/>
                     </div>
                     <div className={classes.field}>
-                        <TextField label="Номер телефона" variant="outlined" name="phone" ref={register}/>
+                        <TextField label="Номер телефона" variant="outlined" name="phone" inputRef={register}/>
                     </div>
                 </div>
                 <div className={classes.block}>
                     <div className={classes.field}>
-                        <TextField label="Марка и модель авто" variant="outlined" name="car" ref={register}/>
+                        <TextField label="Марка и модель авто" variant="outlined" name="car" inputRef={register}/>
                     </div>
                 <div className={classes.field}>
-                        <TextField label="Эл. адрес" variant="outlined" name="email" ref={register}/>
+                        <TextField label="Эл. адрес" variant="outlined" name="email" inputRef={register}/>
                     </div>
                 </div>
                 <div className={classes.block}>
@@ -87,7 +87,7 @@ const OrderForm = (props) => {
                         }}
                         inputProps={{
                             step: 300,
-                        }}  name="time" ref={register}/>
+                        }}  name="time" inputRef={register}/>
                     </div>
                 </div>
             </div>

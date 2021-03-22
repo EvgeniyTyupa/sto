@@ -1,0 +1,36 @@
+.points{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+.pointsLine{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 66px;
+}
+.pointBlock{
+    display: flex;
+    width: 31%;
+    align-items: center;
+}
+.pointBlock img{
+    margin-right: 20px;
+    width: 83px;
+}
+.pointBlockText h4{
+    font-size: 25px;
+    font-family: 'Gilroy-Medium';
+    margin-block-end: 14px;
+    margin-block-start: 0;
+}
+.pointBlockText span{
+    font-size: 18px;
+    font-family: 'Gilroy-Light';
+}
+
