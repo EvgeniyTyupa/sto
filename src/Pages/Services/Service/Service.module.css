@@ -8,14 +8,19 @@
     padding-right: 100px;
     box-sizing: border-box;
     display: flex;
+    margin-top: 115px;
 }
 .leftSide{
     width: 20%;
+    margin-right: 60px;
 }
 .menu{
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #35AAF9;
+    padding-left: 15px;
+    box-sizing: border-box;
 }
 .menuItem a{
     font-size: 20px;
@@ -26,8 +31,28 @@
     text-align: left;
     text-decoration: none;
     transition-duration: .3s;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .activeLink{
     color: white !important;
-    background-color: #35AAF9;
+    background-color: #35AAF9 !important;
+}
+.content{
+    display: flex;
+    width: 80%;
+}
+.contentImages{
+    display: flex;
+    flex-direction: column;
+}
+.contentImages img + img{
+    margin-top: 35px;
+}
+.info{
+    width: 60%;
+}
+.info ul{
+    list-style-type: square;
 }
