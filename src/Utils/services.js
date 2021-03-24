@@ -13,13 +13,46 @@ import { tire } from '../Assets/Images/Icons/tire';
 import { transmission } from '../Assets/Images/Icons/transmisson';
 
 
+
+
+//ENGINE
+
+//GEELY
+import geely1 from '../Assets/Images/Source/services/Engine/Geely/2.jpg';
+import geely2 from '../Assets/Images/Source/services/Engine/Geely/3.jpg';
+import geely3 from '../Assets/Images/Source/services/Engine/Geely/4.jpg';
+import geely4 from '../Assets/Images/Source/services/Engine/Geely/5.jpg';
+import geely5 from '../Assets/Images/Source/services/Engine/Geely/6.jpg';
+import geely6 from '../Assets/Images/Source/services/Engine/Geely/7.jpg';
+
+//MERC
+import merc1 from '../Assets/Images/Source/services/Engine/Merc/2.jpg';
+import merc2 from '../Assets/Images/Source/services/Engine/Merc/3.jpg';
+import merc3 from '../Assets/Images/Source/services/Engine/Merc/4.jpg';
+import merc4 from '../Assets/Images/Source/services/Engine/Merc/5.jpg';
+
+
+import cal1 from '../Assets/Images/Source/services/Engine/2.jpg';
+import cal2 from '../Assets/Images/Source/services/Engine/3.jpg';
+import cal3 from '../Assets/Images/Source/services/Engine/4.jpg';
+import cal4 from '../Assets/Images/Source/services/Engine/5.jpg';
+import cal5 from '../Assets/Images/Source/services/Engine/6.jpg';
+import cal6 from '../Assets/Images/Source/services/Engine/7.jpg';
+import cal7 from '../Assets/Images/Source/services/Engine/8.jpg';
+import cal8 from '../Assets/Images/Source/services/Engine/9.jpg';
+import cal9 from '../Assets/Images/Source/services/Engine/10.jpg';
+import cal10 from '../Assets/Images/Source/services/Engine/11.jpg';
+import cal11 from '../Assets/Images/Source/services/Engine/12.jpg';
+import cal12 from '../Assets/Images/Source/services/Engine/13.jpg';
+
+
 export const services = [
     {
         path: "/services/engine",
         img: diagnostic_header,
         icon: engine,
         text: 'Диагностика и ремонт двигателей',
-        headerPoints: "",
+        headerPoints: "Основные признаки необходимости ремонта двигателя",
         points:[
             "Повышеный расход моторного масла от метки “max” до метки “min” на щупе за 1000 км пробега.",
             "Слишком дымный выхлоп из выхлопной трубы.  Цвет дыма тоже является важным признаком и указывает на возникшие в двигателе неисправности.",
@@ -31,48 +64,96 @@ export const services = [
             "Падение давления масла. Бортовая система автомобиля сигнализирует об этом загорающейся лампочкой на панели приборов.",
             "Постоянный перегрев двигателя. Если двигатель начал часто перегреваться без особых причин, например, даже осенью."
         ],
-        
+        headerFactor: "Необходимость произвести капитальный ремонт двигателя может быть вызвана действием перечисленных ниже факторов:",
+        factors:[
+            "Использование некачественного масла;",
+            "Несвоевременная замена масла и/или масляного фильтра;",
+            "Плохое состояние топливного и/или воздушного фильтров;",
+            "Несвоевременно устраненные неисправности двигателя или его неправильная регулировка;",
+            "Максимальные нагрузки (эксплуатация автомобиля с непрогретым двигателем в зимний период)."
+        ],
+        dop: [
+            "Диагностика двигателя на станции техобслуживания СТО на Бульваре Шевченко проводится механическим путем и при помощи компьютерного оборудования. Проводятся контрольные измерения потребления топлива, анализ состава масла двигателя, контролируются обороты и мощность работы двигателя на всех режимах, анализируется шум и многое другое. В зависимости от полученных результатов принимается решение о необходимом ремонте двигателя и замене вышедших из строя деталей.",
+            "В зависимости от доступности заменяемых узлов двигатель можно быстро демонтировать и произвести необходимый ремонт.",
+            "Обращайтесь к нам. Мы произведем текущий или капитальный ремонт двигателя.",
+            "Диагностику и ремонт двигателей в Запорожье,  осуществляет СТО на Бульваре Шевченко"
+        ],
+        works: [
+            {
+                title: "Замена прокладки и шлифовка плоскости ГБЦ",
+                text: "Замена прокладки и шлифовка плоскости ГБЦ Gelly GC5.",
+                imgs: [geely1, geely2, geely3, geely4, geely5, geely6]
+            },
+            {
+                title: "Замена прокладки ГБЦ и сварка рубашки охлаждения",
+                text: "Замена прокладки ГБЦ и сварка рубашки охлаждения на Mercedes C Class.",
+                imgs: [merc1, merc2, merc3, merc4]
+            },
+        ]
     },
     {
         path: "/services/wheel-alignment",
         img: razval_header,
         icon: tire,
         text: 'Развал схождение',
-        points: []
+        points: [],
+        headerFactor: "",
+        factors: [],
+        dop: [],
+        works: []
     },
     {
         path: "/services/car-chassis",
         img: diag2_header,
         icon: diagnostic,
         text: 'Диагностика и ремонт ходовой части',
-        points: []
+        points: [],
+        headerFactor: "",
+        factors: [],
+        dop: [],
+        works: []
     },
     {
         path: "/services/tire-fitting",
         img: montage,
         icon: tire,
         text: 'Шиномонтаж',
-        points: []
+        points: [],
+        headerFactor: "",
+        factors: [],
+        dop: [],
+        works: []
     },
     {
         path: "/services/transmission",
         img: transmission_header,
         icon: transmission,
         text: 'Ремонт механических трансмиссий',
-        points: []
+        points: [],
+        headerFactor: "",
+        factors: [],
+        dop: []
     },
     {
         path: "/services/electronics",
         img: electro,
         icon: battery,
         text: 'Ремонт электропроводки',
-        points: []
+        points: [],
+        headerFactor: "",
+        factors: [],
+        dop: [],
+        works: []
     },
     {
         path: "/services/brakes",
         img: tormoza,
         icon: tire,
         text: 'Ремонт тормозной системы',
-        points: []
+        points: [],
+        headerFactor: "",
+        factors: [],
+        dop: [],
+        works: []
     }
 ]

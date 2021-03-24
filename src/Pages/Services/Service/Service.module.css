@@ -31,6 +31,7 @@
     text-align: left;
     text-decoration: none;
     transition-duration: .3s;
+    font-family: 'Gilroy';
     background-color: white;
     padding-left: 20px;
     padding-right: 20px;
@@ -39,9 +40,36 @@
     color: white !important;
     background-color: #35AAF9 !important;
 }
-.content{
+.sale{
+    margin-top: 230px;
+    box-shadow: 0px 5px 70px rgba(0, 0, 0, 0.1);
+    padding: 45px 35px;
+    box-sizing: border-box;
+    text-align: center;
     display: flex;
-    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.sale p{
+    font-family: 'Gilroy-Light';
+    font-size: 18px;
+}
+.sale h1{
+    color: #35AAF9;
+    font-size: 60px;
+    margin-block-end: 15px;
+    margin-block-start: 15px;
+}
+.sale button{
+    margin-top: 30px;
+}
+.content{
+    width: 70%;
+}
+.contentTop{
+    display: flex;
+    width: 100%;
 }
 .contentImages{
     display: flex;
@@ -51,8 +79,71 @@
     margin-top: 35px;
 }
 .info{
-    width: 60%;
+    width: 65%;
+    margin-left: 20px;
 }
 .info ul{
     list-style-type: square;
+}
+.content h3{
+    margin-block-start: 0;
+    margin-block-end: 25px;
+    font-size: 30px;
+    font-family: 'Gilroy-Medium';
+    line-height: 36px;
+    margin-left: 40px;
+    opacity: .8;
+}
+.info li{
+    font-size: 20px;
+    font-family: 'Gilroy-Light';
+    line-height: 29px;
+    opacity: .8;
+    margin-bottom: 10px;
+}
+.contentBot{
+    margin-top: 52px;
+}
+.contentBot h3{
+    margin-left: 0;
+}
+.factors{
+    list-style-type: "—";
+    padding-left: 13px;
+    opacity: .8;
+    font-family: 'Gilroy-Light';
+    font-size: 18px;
+    line-height: 24px;
+}
+.factors li{
+    padding-left: 10px;
+}
+.orderBut{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    margin-bottom: 170px;
+}
+.dop p{
+    font-size: 18px;
+    font-family: 'Gilroy-Light';
+    opacity: .8;
+    line-height: 24px;
+}
+.works{
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.works h2{
+    margin-block-end: 88px;
+    margin-block-start: 0;
+    font-size: 40px;
+    font-family: 'GothamPro-Bold';
 }
