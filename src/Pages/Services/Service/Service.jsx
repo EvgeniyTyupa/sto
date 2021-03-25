@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import HeaderPage from '../../../Components/HeaderPage/HeaderPage';
 import { services } from '../../../Utils/services';
 import classes from './Service.module.css';
+import { Helmet } from "react-helmet";
 
 import img1 from '../../../Assets/Images/Source/services/img1.jpg';
 import img2 from '../../../Assets/Images/Source/services/img2.jpg';
@@ -10,10 +11,15 @@ import { Button } from '@material-ui/core';
 import ButtonSto from '../../../Components/Button/Button';
 import Footer from '../../../Components/Footer/Footer';
 import SliderWorks from '../../../Components/Slider/Slider';
+import OrderModal from '../../../Components/Modals/OrderModal/OrderModal';
+import OrderSale from '../../../Components/Modals/OrderSale/OrderSale';
 
 const Service = (props) => {
     const [currentService, setCurrentService] = useState(null);
     let points = [];
+
+    const [isOpenOrderModal, setIsOpenOrderModal] = useState(false);
+    const [isOpenSaleModal, setIsOpenSaleModal] = useState(false);
 
     useEffect(() => {
         services.forEach(item => {
@@ -25,7 +31,13 @@ const Service = (props) => {
 
     return(
         <div className={classes.main}>
+            <Helmet
+                htmlAttributes={{"lang": "en", "amp": undefined}}
+                title={currentService && currentService.text + " | СТО на Бульваре Шевченко"}
+                meta={[{"name": "description", "content": "СТО на Бульваре Шевченко. Запорожье, ул. Независимой Украины 56. Пн - Пт: с 09:00 до 19:00   Сб: с 09:00 до 18:00. +38 (066) 197 39 04. +38 (098) 038 04 34"}]}/>
             <HeaderPage/>
+            {isOpenOrderModal && <OrderModal setIsOpenOrderModal={setIsOpenOrderModal}/>}
+            {isOpenSaleModal && <OrderSale setIsOpenSaleModal={setIsOpenSaleModal}/>}
             <div className={classes.infoMain}>
                 <div className={classes.leftSide}>
                     <div className={classes.menu}>
@@ -39,7 +51,7 @@ const Service = (props) => {
                         <p>Не упустите возможность получить <strong>скидку</strong></p>
                         <h1>-15%</h1>
                         <p><strong>на Шиномонтаж или Развал-схождение</strong></p>
-                        <ButtonSto text={"Подробнее"}/>
+                        <ButtonSto function={setIsOpenSaleModal} text={"Подробнее"}/>
                     </div>
                 </div>
                 <div className={classes.content}>
@@ -58,12 +70,12 @@ const Service = (props) => {
                         </div>
                     </div>
                     <div className={classes.contentBot}>
-                        <h3>{currentService && currentService.headerFactor}</h3>
-                        <ul className={classes.factors}>
-                            {currentService && currentService.factors.map((item, index) => {
+                        {(currentService && currentService.headerFactor) && <h3>{currentService.headerFactor}</h3>}
+                        {(currentService && currentService.factors) && <ul className={classes.factors}>
+                            {currentService.factors.map((item, index) => {
                                 return <li key={"factor" + index}>{item}</li>
                             })}
-                        </ul>
+                        </ul>}
                         <div className={classes.dop}>
                             {currentService && currentService.dop.map((item, index) => {
                                 return <p key={"dop" + index}>{item}</p>
@@ -73,9 +85,9 @@ const Service = (props) => {
                 </div>
             </div>
             <div className={classes.orderBut}>
-                <ButtonSto text={"Записаться"}/>
+                <ButtonSto function={setIsOpenOrderModal} text={"Записаться"}/>
             </div>
-            {currentService && currentService.works.length &&
+            {(currentService && currentService.works.length > 0) &&
             <div className={classes.works}>
                 <h2>НАШИ РАБОТЫ</h2>
                 <SliderWorks currentService={currentService}/>

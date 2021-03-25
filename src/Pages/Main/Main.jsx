@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import CountUp from 'react-countup';
 import Slider from 'infinite-react-carousel';
-
+import { HashLink as Link } from 'react-router-hash-link';
 
 import { oil } from '../../Assets/Images/Icons/oil.js';
 import { tire } from '../../Assets/Images/Icons/tire.js';
@@ -131,7 +131,9 @@ const Main = (props) => {
             <div className={classes.title}>
                 <h1 data-aos="fade-right">АВТОСЕРВИС <br/> В ЗАПОРОЖЬЕ</h1>
                 <p data-aos="fade" data-aos-duration="1500" data-aos-delay="800">Ваше авто в надежных руках</p>
-                <Button data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">Записаться</Button>
+                <Button data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
+                    <Link to="/#order">Записаться</Link>
+                </Button>
             </div>
             <div className={classes.services}>
                 <h2 data-aos="fade-up">НАШИ УСЛУГИ</h2>
@@ -256,7 +258,7 @@ const Main = (props) => {
                     {comments.map((item, index) => <Comment key={"comment" + index} item={item}/>)}
                 </Slider>
             </div>
-            <div className={classes.order} data-aos="fade-down">
+            <div className={classes.order} data-aos="fade-down" id="order">
                 <h2>ЗАПИСАТЬСЯ НА СЕРВИС</h2>
                 <OrderForm/>
             </div>

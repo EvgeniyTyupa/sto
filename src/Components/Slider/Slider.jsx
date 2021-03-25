@@ -155,24 +155,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SliderWorks = (props) => {
-    const [sliderPosition, setSliderPosition] = useState(0);
     const [sliderImagePosition, setSliderImagePosition] = useState(0);
     const [currentWork, setCurrentWork] = useState(0);
 
     const material = useStyles();
 
     const handleSlide = (next) => {
-        setSliderPosition(next);
         if(next > props.currentService.works.length - 1){
             setCurrentWork(0);
         }else{
             setCurrentWork(next);
         }
-    }
-
-    useEffect(()=>{
         setSliderImagePosition(0)
-    },[currentWork]);
+    }
 
     const sliderSettings = {
         dots: false,
@@ -183,11 +178,12 @@ const SliderWorks = (props) => {
         slidesPerRow: 1,
         initialSlide: 0,
         arrows: true,
-        rtl: 'ltr',
         slidesToShow: 1,
         slidesToScroll: 1,
         focusOnSelect: false,
-        beforeChange: (current, next) => handleSlide(next + 1)
+        beforeChange: (current, next) => {
+            handleSlide(next)
+        }
     }
 
     const sliderImageSettings = {
@@ -199,24 +195,23 @@ const SliderWorks = (props) => {
         slidesPerRow: 1,
         initialSlide: 0,
         arrows: true,
-        rtl: 'ltr',
         slidesToShow: 1,
         slidesToScroll: 1,
         focusOnSelect: false,
-        beforeChange: (current, next) => setSliderImagePosition(next + 1)
+        beforeChange: (current, next) => setSliderImagePosition(next)
     }
 
     return(
         <div className={classes.main}>
             <Slider {...sliderSettings} className={material.sliderCarousel}>
-               {props.currentService && (props.currentService.works.length &&  props.currentService.works.map((item, index) => {
+               {props.currentService && props.currentService.works.map((item, index) => {
                    return(
                        <div className={classes.slide} key={"slideText" + index}>
                            <h5>{item.title}</h5>
                            <p>{item.text}</p>
                        </div>
                    );
-               }))}
+               })}
             </Slider>
             <div className={classes.sliderImages}>
                 <Slider {...sliderImageSettings} className={material.sliderImageCarousel}>
@@ -227,11 +222,10 @@ const SliderWorks = (props) => {
                     }))}
                 </Slider>
                 <span className={classes.imageCounter}>
-                    <span className={classes.currentImageNumber}>{sliderImagePosition === 0 ? sliderImagePosition + 1 : sliderImagePosition} / </span>
+                    <span className={classes.currentImageNumber}>{sliderImagePosition < props.currentService.works[currentWork].imgs.length ? sliderImagePosition + 1 : sliderImagePosition} / </span>
                     <span>{props.currentService.works[currentWork].imgs.length}</span>
                 </span>
             </div>
-            
         </div>
     );
 }

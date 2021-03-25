@@ -31,7 +31,7 @@
     text-align: left;
     text-decoration: none;
     transition-duration: .3s;
-    font-family: 'Gilroy';
+    font-family: 'Gilroy-Medium';
     background-color: white;
     padding-left: 20px;
     padding-right: 20px;
@@ -39,6 +39,7 @@
 .activeLink{
     color: white !important;
     background-color: #35AAF9 !important;
+    font-family: 'Gilroy' !important;
 }
 .sale{
     margin-top: 230px;

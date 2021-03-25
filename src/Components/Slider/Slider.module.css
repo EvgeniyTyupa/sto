@@ -5,9 +5,9 @@
 }
 .slide{
     display: flex;
-    height: 48%;
-    padding-left: 50px;
-    padding-right: 50px;
+    height: 545px;
+    padding-left: 75px;
+    padding-right: 75px;
     box-sizing: border-box;
 }
 .slide h5{

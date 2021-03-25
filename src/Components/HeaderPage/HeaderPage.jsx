@@ -11,13 +11,13 @@ const HeaderPage = (props) => {
         let splitPath = window.location.pathname.split('/');
         let newNavigation = splitPath.map((route) => {
             return(
-                routes.map(item => {
+                routes.map((item, index) => {
                     if(window.location.pathname === item.path){
                         setHeader(item.header);
                     }
                     if(route != "" && route === item.value){
                         return(
-                            <div className={classes.navEl + " " + ((window.location.pathname === item.path) && classes.activeRoute)}>
+                            <div key={"route" + index} className={classes.navEl + " " + ((window.location.pathname === item.path) && classes.activeRoute)}>
                                 <span>/</span>
                                 <NavLink to={item.path}>{item.text}</NavLink>
                             </div>

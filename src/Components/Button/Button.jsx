@@ -4,7 +4,7 @@ import classes from './Button.module.css';
 
 const ButtonSto = (props) => {
     return(
-        <Button className={classes.main}>{props.text}</Button>
+        <Button onClick={()=>{props.function(true)}} className={classes.main}>{props.text}</Button>
     );
 }
 

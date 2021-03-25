@@ -26,7 +26,6 @@ const App = (props) => {
             </Switch>
           </ScrollIntoView>
         </Suspense>
-        
       </div>
     </BrowserRouter>
   )

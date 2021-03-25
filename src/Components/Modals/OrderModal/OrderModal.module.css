@@ -1,0 +1,71 @@
+.main{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .5);
+    transition-duration: .3s;
+    z-index: 10000;
+}
+.window{
+    width: 75%;
+    height: 70%;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.window form{
+    width: 52%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 35px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.window form h2{
+    font-family: 'GothamPro-Bold';
+    font-size: 25px;
+    margin-block-start: 0;
+    margin-bottom: auto;
+}
+.field{
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+.field div{
+    width: 100%;
+}
+.window form button[type="submit"]{
+    margin-top: auto;
+    background-color: #35AAF9 !important;
+    color: white !important;
+    font-family: 'Gilroy-Medium' !important;
+    border-radius: 0 !important;
+    height: 75px;
+    width: 60%;
+    align-self: center;
+    text-transform: initial !important;
+    font-size: 20px !important;
+    margin-bottom: 30px;
+    transition-duration: .3s !important;
+}
+.window form button[type="submit"]:hover{
+    background-color: #2194e0 !important;
+}
+.close{
+    align-self: flex-end;
+    font-size: 30px !important;
+    font-weight: bold !important;
+}
+.window img{
+    width: 48%;
+}
