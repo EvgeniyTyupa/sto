@@ -33,6 +33,7 @@
     font-size: 25px;
     margin-block-start: 0;
     margin-bottom: auto;
+    padding-bottom: 15px;
 }
 .field{
     width: 100%;
@@ -68,4 +69,12 @@
 }
 .window img{
     width: 48%;
+}
+.error{
+    color: tomato;
+    margin-block-end: 0;
+    margin-block-start: 5px;
+    font-size: 12px;
+    text-align: left;
+    font-family: 'Gilroy-Medium';
 }
