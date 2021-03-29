@@ -12,19 +12,19 @@
     $message .= "Дата: ".$data['date'].";\r\n";
     $message .= "Время: ".$data['time'].";\r\n\n";
     $message .= "Услуга: ".$data['service'].";\r\n";
-
-    echo $message;
-
+    $message .= "Сообщение:\r\n";
+    $message .= $data['service'];
 
     $subject = "Сервис СТО";
     $to = "boogee2820@gmail.com";
     $from = $data['email'];
 
-    // // Headers
-    $headers = "MIME-Version: 1.0\r\n";
-    $headers.= "Content-type: text/html; charset=UTF-8\r\n";
-    $headers.= "From: <" . $from . ">";
 
-    mail($to, $subject, $message, $headers);
+    $headers = 'From: '.$from."\r\n" .
+                'Reply-To: boogee2820@gmail.com'. "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+    var_dump(mail($to, $subject, $message, $headers));
+    return $res;
 
 ?>

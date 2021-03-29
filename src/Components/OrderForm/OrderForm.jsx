@@ -15,6 +15,21 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiInputAdornment-positionEnd': {
             width: "auto !important"
+        },
+        '& label.Mui-focused': {
+            color: '#35AAF9 !important'
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#35AAF9 !important' 
+        },
+        '& .MuiInput-underline:hover:not(.Mui-disabled):before': {
+            borderBottom: '2px solid #35AAF9 !important'
+        },
+        '& .MuiOutlinedInput-root': {
+            borderRadius: '0 !important'
+        },
+        '& .MuiInput-underline:after': {
+            borderBottom: '2px solid #35AAF9 !important'
         }
     }
 }));
@@ -23,12 +38,13 @@ const useStyles = makeStyles((theme) => ({
 const OrderForm = (props) => {
     const material = useStyles();
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, watch, reset, errors } = useForm();
 
     const [date, setDate] = useState(new Date());
 
-    const handleDate = (date) => {
+    const handleDate = (date, e) => {
         setDate(date);
+        e.target.reset();
     }
 
     if (locale && locale.options) {
@@ -45,24 +61,24 @@ const OrderForm = (props) => {
                 <div className={classes.block}>
                     <h4>Контактные данные</h4>
                     <div className={classes.field}>
-                        <TextField label="Ваше имя" variant="outlined" name="name" inputRef={register}/>
+                        <TextField classes={material} label="Ваше имя" variant="outlined" name="name" inputRef={register}/>
                     </div>
                     <div className={classes.field}>
-                        <TextField label="Номер телефона" variant="outlined" name="phone" inputRef={register}/>
+                        <TextField classes={material} label="Номер телефона" variant="outlined" name="phone" inputRef={register}/>
                     </div>
                 </div>
                 <div className={classes.block}>
                     <div className={classes.field}>
-                        <TextField label="Марка и модель авто" variant="outlined" name="car" inputRef={register}/>
+                        <TextField classes={material} label="Марка и модель авто" variant="outlined" name="car" inputRef={register}/>
                     </div>
                 <div className={classes.field}>
-                        <TextField label="Эл. адрес" variant="outlined" name="email" inputRef={register}/>
+                        <TextField classes={material} label="Эл. адрес" variant="outlined" name="email" inputRef={register}/>
                     </div>
                 </div>
                 <div className={classes.block}>
                     <h4>Дата и время</h4>
                     <div className={classes.field}>
-                        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale}>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale} classes={material}>
                             <KeyboardDatePicker
                                 margin="normal"
                                 id="date-picker-dialog"
@@ -82,7 +98,7 @@ const OrderForm = (props) => {
                         </MuiPickersUtilsProvider>
                     </div>
                     <div className={classes.field}>
-                        <TextField label="Время" type="time" InputLabelProps={{
+                        <TextField classes={material} label="Время" type="time" InputLabelProps={{
                             shrink: true,
                         }}
                         inputProps={{

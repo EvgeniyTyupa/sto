@@ -10,3 +10,6 @@
     background-color: rgba(128, 128, 128, .1);
     z-index: 30000;
 }
+.main img{
+    width: 100px;
+}

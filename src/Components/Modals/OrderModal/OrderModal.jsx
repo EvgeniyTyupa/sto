@@ -10,7 +10,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
-import { makeOrder } from '../../../Redux/commonReducer';
+import { makeOrder, setIsOrdered } from '../../../Redux/commonReducer';
 import Preloader from '../../Preloader/Preloader';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,12 +52,17 @@ const OrderModal = (props) => {
         Aos.init({ duration: 500 });
         let random = getRandomIndex(0, images.length - 1);
         setCurrentImage(images[random]);
+
+        return function cleanup(){
+            props.setIsOrdered(false);
+        }
     },[]);
 
     const material = useStyles();
 
-    const onSubmit = (data) => {
+    const onSubmit = (data, e) => {
         props.makeOrder(data);
+        e.target.reset();
     }
 
     return(
@@ -65,6 +70,7 @@ const OrderModal = (props) => {
             {props.isFetching && <Preloader/>}
             <div className={classes.window} data-aos="zoom-in" data-aos-duration={200}>
                 {currentImage && <StyledImage img={currentImage}/>}
+                {!props.isOrdered ?
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Button className={classes.close} onClick={()=>{props.setIsOpenOrderModal(false)}}>&#x2715;</Button>
                     <h2>ЗАПИСАТЬСЯ НА СЕРВИС</h2>
@@ -85,7 +91,13 @@ const OrderModal = (props) => {
                         {errors.email && errors.email.type === "required" && <p className={classes.error}>Обязательное поле!</p>}
                     </div>
                     <Button type="submit">Записаться</Button>
-                </form>
+                </form> :
+                <div className={classes.done} data-aos="fade" data-aos-duration={300}>
+                    <Button className={classes.close} onClick={()=>{props.setIsOpenOrderModal(false)}}>&#x2715;</Button>
+                    <h2>Ваша запись принята. <br/>Спасибо, что доверяете нам!</h2>
+                    <p>Мы перезвоним Вам в ближайшее время для уточнения деталей и подтверждения записи</p>
+                </div>
+                }
             </div>
         </div>
     );
@@ -97,5 +109,6 @@ let mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-    makeOrder
+    makeOrder, 
+    setIsOrdered
 })(OrderModal);
