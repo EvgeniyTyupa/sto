@@ -84,7 +84,7 @@ const Footer = (props) => {
                         <a href="mailto:stobsh@gmail.com">stobsh@gmail.com</a>
                     </div>
                 </div>
-                <a href="https://www.instagram.com/stobshzpua/" className={classes.insta}>
+                <a target="_blank" href="https://www.instagram.com/stobshzpua/" className={classes.insta}>
                     <img src={insta}/>
                 </a>
             </div>

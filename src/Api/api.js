@@ -8,9 +8,9 @@ const instance = axios.create({
 export const orderApi = {
     makeOrder(formData){
         let name = formData.name;
-        let phone = formData.phone;
+        let phone = formData.phone ? formData.phone :  "Не указано";
         let email = formData.email;
-        let auto = formData.auto;
+        let auto = formData.auto ? formData.auto : "Не указано";
 
         let date = formData.date ? formData.date : "Не указано";
         let time = formData.time ? formData.time : "Не указано";

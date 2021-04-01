@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -33,16 +33,20 @@ import Comment from '../../Components/Comment/Comment';
 import OrderForm from '../../Components/OrderForm/OrderForm';
 import Footer from '../../Components/Footer/Footer';
 import Points from '../../Components/Points/Points';
+import { connect } from 'react-redux';
+import { makeOrder, setIsOrdered } from '../../Redux/commonReducer';
 
 const Main = (props) => {
     const [currentOption, setCurrentOption] = useState(null);
     const countRef = useRef();
 
+    const [size, setSize] = useState(window.outerWidth);
+
     useEffect(() => {
         Aos.init({ duration: 1500 });
     }, []);
 
-    const comments = [
+    const comments = useMemo(()=>[
         {
             name: "Иван",
             text: "Нашел через интернет, пол года назад, очень близко живу и по этому обслуживают только у этих ребят - быстро и качественно, всегда пытаются отнестись с пониманием. Всегда оставляю им свою машину и не боюсь что с ней что-то станет. Сегодня забрал свой автомобиль после капитального ремонта и хоть это длилось две недели, но это виноват мой поставщик запчастей. Спасибо вам ребята.",
@@ -63,9 +67,9 @@ const Main = (props) => {
             text: "Отличная мастерская!!! Недавно возникла проблема с авто, которая требовала оперативного решения. Объездил со своей проблемой чуть ли не пол города и всё бестолку. От товарища узнал за данное сто и сразу же поехал к ним. С порога встретили радушно, за оформление заказа взялся лично директор. Все мелочи и подробности заказа конспектировались, что очень порадовало. Обслуживание на высшем уровне. Огромная благодарность мастерам, которые не только быстро и качественно справились с заказом, но и выявили поломку оставленную без внимания сотрудниками другого СТО. Только плюс, всем советую!!",
             img: user4
         }
-    ];
+    ], []);
 
-    const serviceOptions = [
+    const serviceOptions = useMemo(()=>[
         {
             id: 0,
             label: "Масло",
@@ -102,7 +106,7 @@ const Main = (props) => {
             img: diagnostic, 
             info: "Своевременная качественная диагностика ходовой части – залог безопасного долгосрочного функционирования. Замечая сложности в работе своего авто, слыша посторонние звуки – не стоит затягивать, обращайтесь к нам, мы сможем помочь Вам на высоком уровне профессионализма и качества!"
         }
-    ];
+    ], []);
 
     const [isStartCounter, setIsStartCounter] = useState(false);
 
@@ -116,11 +120,21 @@ const Main = (props) => {
 
     useEffect(() => {
         window.addEventListener('scroll', isRightYPosition);
-        return function cleanup(){
+        return () => {
             window.removeEventListener('scroll', isRightYPosition);
             setCurrentOption(null);
+            props.setIsOrdered(false);
         }
     },[]);
+
+    useLayoutEffect(() => {
+        function updateSize(){
+            setSize(window.outerWidth);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
 
     return(
         <div className={classes.main}>
@@ -251,20 +265,54 @@ const Main = (props) => {
                         <span>Приехать, переобуться <br/>либо отрегулировать углы <br/>установки колес <br/>  сэкономить деньги.</span>
                     </div>
                 </div>
+                <div className={classes.termMobile}>
+                    <div className={classes.termLvl}>
+                        <div className={classes.termBlock}>
+                            <img src={phone}/>
+                            <span>Позвонить на СТО <br/> на Бульваре Шевченко.</span>
+                        </div>
+                        <div className={classes.termBlock}>
+                            <img src={chat}/>
+                            <span>Озвучить, что вы по<br/>акционному шиномонтажу <br/>либо развал - схождению.</span>
+                        </div>
+                    </div>
+                    <div className={classes.termLvl}>
+                        <div className={classes.termBlock}>
+                            <img src={calendar}/>
+                            <span>Записаться на акционный <br/>шиномонтаж либо на <br/>регулировку развал-схождения.</span>
+                        </div>
+                        <div className={classes.termBlock}>
+                            <img src={buy}/>
+                            <span>Приехать, переобуться <br/>либо отрегулировать углы <br/>установки колес <br/>  сэкономить деньги.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className={classes.comments} data-aos="fade">
                 <h2>ОТЗЫВЫ</h2>
-                <Slider className={classes.slider} dotsScroll={2} centerMode dots infinite slidesToShow={2} autoplaySpeed={5000} duration={300} autoplay arrows={false} swipe >
+                <Slider className={classes.slider} dotsScroll={size > 1279 ? 2 : 1} centerMode dots infinite slidesToShow={size > 1279 ? 2 : 1} autoplaySpeed={5000} duration={300} autoplay arrows={false} swipe >
                     {comments.map((item, index) => <Comment key={"comment" + index} item={item}/>)}
                 </Slider>
             </div>
             <div className={classes.order} data-aos="fade-down" id="order">
                 <h2>ЗАПИСАТЬСЯ НА СЕРВИС</h2>
-                <OrderForm/>
+                {props.isOrdered ? 
+                <div className={classes.done} data-aos="fade" data-aos-duration={300}>
+                    <h2>Ваша запись принята. <br/>Спасибо, что доверяете нам!</h2>
+                    <p>Мы перезвоним Вам в ближайшее время для уточнения деталей и подтверждения записи</p>
+                </div>
+                : <OrderForm/>}
             </div>
-            <Footer map={true} contacts={true}/>
+            <Footer map={true} contacts={size > 1279 ? true : false}/>
         </div>
     );
 }
 
-export default Main;
+let mapStateToProps = (state) => ({
+    isFetching: state.common.isFetching,
+    isOrdered: state.common.isOrdered
+});
+
+export default connect(mapStateToProps, {
+    makeOrder, setIsOrdered
+})(Main);

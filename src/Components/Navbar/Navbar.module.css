@@ -45,6 +45,9 @@
 .block a{
     color: white;
 }
+.block a:hover{
+    text-decoration: underline;
+}
 .phone{
     margin-right: 20px;
 }
@@ -61,4 +64,72 @@
 .links a:hover{
     transform: scale(1.02);
 }
+.mobileHeader{
+    display: none;
+}
+.mobileMenu{
+    display: none;
+}
 
+
+@media screen and (max-width: 1280px){
+    .container{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 1279px){
+    .header{
+        display: none;
+    }
+    .menu{
+        display: none;
+    }
+    .mobileHeader{
+        display: flex;
+        height: 88px;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 25px;
+        padding-right: 25px;
+        background-color: #000426;
+        box-sizing: border-box;
+    }
+    .mobileHeader a{
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        font-family: 'GothamPro-Bold';
+        font-size: 22px;
+    }
+    .mobileHeader a img{
+        width: 80%;
+    }
+    .mobileMenu{
+        display: flex;
+        height: 52px;
+        background-color: white;
+        justify-content: space-between;
+        padding-left: 25px;
+        padding-right: 25px;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+    }
+    .mobileMenu a{
+        color: black;
+        font-family: 'Gilroy-Medium';
+        font-size: 18px;
+    }
+    .phone{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .main{
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        box-shadow: 0 0 29px -10px grey;
+    }
+}

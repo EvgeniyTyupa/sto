@@ -34,3 +34,9 @@
     font-family: 'Gilroy-Light';
 }
 
+@media screen and (max-width: 1280px){
+    .points{
+        padding-left: 0;
+        padding-right: 0px;
+    }
+}

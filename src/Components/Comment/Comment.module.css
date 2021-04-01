@@ -25,3 +25,10 @@
     font-size: 18px;
     font-family: 'Gilroy-Light';
 }
+
+@media screen and (max-width: 1280px){
+    .main{
+        width: 85%;
+        padding: 30px 45px;
+    }
+}

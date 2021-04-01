@@ -3,11 +3,13 @@ import { HashLink as Link } from 'react-router-hash-link';
 import classes from './Navbar.module.css';
 import clockicon from '../../Assets/Images/Icons/clock.svg';
 import phoneicon from '../../Assets/Images/Icons/phone.svg';
+import phoneiconblack from '../../Assets/Images/Icons/phone_black.svg';
 import locationicon from '../../Assets/Images/Icons/location.svg';
 import logo from '../../Assets/Images/Icons/logo.svg';
 import { NavLink } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import Burger from './Burger/Burger';
 
 
 const Navbar = (props) => {
@@ -36,7 +38,9 @@ const Navbar = (props) => {
             </div>
             <div className={classes.menu}>
                 <div className={classes.container}>
-                    <img src={logo} data-aos="fade-up" data-aos-duration="1200"/>
+                    <NavLink to="/">
+                        <img src={logo} data-aos="fade-up" data-aos-duration="1200"/>
+                    </NavLink>
                     <div className={classes.links} data-aos="fade-up" data-aos-duration="1200">
                         <NavLink to="/">ГЛАВНАЯ</NavLink>
                         <NavLink to="/services">УСЛУГИ</NavLink>
@@ -44,6 +48,19 @@ const Navbar = (props) => {
                     </div>
                     <span data-aos="fade-up" data-aos-duration="1200">СТО НА БУЛЬВАРЕ ШЕВЧЕНКО</span>
                 </div>
+            </div>
+            <div className={classes.mobileHeader}>
+                <Burger/>
+                <div className={classes.block}>
+                    <img src={locationicon}/>
+                    <Link to="/#map">СТО <br/> НА БШ</Link>
+                </div>
+                
+            </div>
+            <div className={classes.mobileMenu}>
+                <img src={phoneiconblack}/>
+                <a href="tel:+380661973904" className={classes.phone}>+38 (066) 197 39 04</a>
+                <a href="tel:+380980380434">+38 (098) 038 04 34</a>
             </div>
         </nav>
     )

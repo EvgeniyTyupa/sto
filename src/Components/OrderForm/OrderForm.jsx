@@ -10,6 +10,8 @@ import {
 } from '@material-ui/pickers';
 import locale from 'date-fns/locale/ru'
 import classes from './OrderForm.module.css';
+import { connect } from 'react-redux';
+import { makeOrder } from '../../Redux/commonReducer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,37 +44,38 @@ const OrderForm = (props) => {
 
     const [date, setDate] = useState(new Date());
 
-    const handleDate = (date, e) => {
+    const handleDate = (date) => {
         setDate(date);
-        e.target.reset();
     }
 
     if (locale && locale.options) {
         locale.options.weekStartsOn = 1
     }
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = (data, e) => {
+        data.date = date;
+        props.makeOrder(data);
+        e.target.reset();
     }
 
     return(
-        <form className={classes.main}>
+        <form className={classes.main} onSubmit={handleSubmit(onSubmit)}>
             <div className={classes.inputsContainer}>
                 <div className={classes.block}>
                     <h4>Контактные данные</h4>
                     <div className={classes.field}>
-                        <TextField classes={material} label="Ваше имя" variant="outlined" name="name" inputRef={register}/>
+                        <TextField classes={material} error={errors.name ? true : false} label="Ваше имя*" variant="outlined" name="name" inputRef={register({required: true})}/>
                     </div>
                     <div className={classes.field}>
-                        <TextField classes={material} label="Номер телефона" variant="outlined" name="phone" inputRef={register}/>
+                        <TextField classes={material} error={errors.phone ? true : false} label="Номер телефона*" variant="outlined" name="phone" inputRef={register({required: true})}/>
                     </div>
                 </div>
                 <div className={classes.block}>
                     <div className={classes.field}>
                         <TextField classes={material} label="Марка и модель авто" variant="outlined" name="car" inputRef={register}/>
                     </div>
-                <div className={classes.field}>
-                        <TextField classes={material} label="Эл. адрес" variant="outlined" name="email" inputRef={register}/>
+                    <div className={classes.field}>
+                        <TextField classes={material} error={errors.email ? true : false} label="Эл. адрес*" variant="outlined" name="email" inputRef={register({required: true})}/>
                     </div>
                 </div>
                 <div className={classes.block}>
@@ -107,9 +110,9 @@ const OrderForm = (props) => {
                     </div>
                 </div>
             </div>
-            <Button className={classes.submit}>Записаться</Button>
+            <Button className={classes.submit} type="submit">Записаться</Button>
         </form>
     );
 }
 
-export default OrderForm;
+export default connect(null, {makeOrder})(OrderForm);
