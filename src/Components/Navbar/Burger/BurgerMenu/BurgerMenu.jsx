@@ -29,6 +29,14 @@ const StyledMenu = styled.div`
         border: 1px solid white;
         padding: 20px;
     }
+    @media screen and (max-width: 468px){
+        width: 80%;
+        & a img{
+            width: 25px;
+            border: 1px solid white;
+            padding: 10px;
+        }
+    }
 `;
 
 const BurgerMenu = (props) => {

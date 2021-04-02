@@ -5,9 +5,9 @@ import 'aos/dist/aos.css';
 import classes from './Main.module.css';
 import { Helmet } from "react-helmet";
 import { NavLink } from 'react-router-dom';
-import { Button } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import CountUp from 'react-countup';
-import Slider from 'infinite-react-carousel';
+import Slider from 'react-slick';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import { oil } from '../../Assets/Images/Icons/oil.js';
@@ -36,8 +36,85 @@ import Points from '../../Components/Points/Points';
 import { connect } from 'react-redux';
 import { makeOrder, setIsOrdered } from '../../Redux/commonReducer';
 
+
+
+const useStyles = makeStyles((theme) => ({
+    main: {
+        width: "50%",
+        outline: "none"
+    },
+    sliderCarousel: {
+        outline: "none",
+        width: "40%",
+        marginRight: "40px",
+        height: '100%',
+        position: "relative",
+        '&:active': {
+            border: "none",
+            outline: "none",
+        },
+        '& .slick-list': {
+            overflow: "hidden"
+        },
+        '& .slick-prev': {
+          left: 20,
+          transform: 'rotate(180deg)',
+        },
+        '& .slick-next': {
+          right: 20,
+          transform: 'unset !important',
+        },
+        '& .slick-track': {
+          display: 'flex !important',
+          alignItems: 'center',
+          width: "100%"
+        },
+        '& .slick-track img': {
+            width: "100%"
+        },
+        '& .slick-arrow': {
+          backgroundColor: "transparent",
+          height: '40px',
+          width: 'auto',
+          color: '#4B5EA3',
+          zIndex: 1560,
+          borderSize: 10,
+          borderRadius: '50%',
+          position: "absolute",
+          top: "0",
+          color: "white",
+          backgroundColor: "#35AAF9",
+          borderRadius: 0,
+          cursor: "pointer",
+        },
+        '& .slick-prev': {
+            left: "0px",
+            transform: "rotate(180deg)",
+            opacity: ".8",
+            transitionDuration: ".3s",
+        },
+        '& .slick-prev:hover': {
+            opacity: 1
+        },
+        '& .slick-next': {
+            right: "0px",
+            opacity: ".8",
+            transitionDuration: ".3s",
+        },
+        '& .slick-next:hover': {
+            opacity: 1  
+        },
+        '& .carouselContent': {
+          // width: 'fit-content !important',
+          height: 'auto',
+          maxHeight: 'calc(100vh - 64px)',
+          margin: '0 auto',
+        },
+    }
+}));
+
+
 const Main = (props) => {
-    const [currentOption, setCurrentOption] = useState(null);
     const countRef = useRef();
 
     const [size, setSize] = useState(window.outerWidth);
@@ -108,6 +185,8 @@ const Main = (props) => {
         }
     ], []);
 
+    const [currentOption, setCurrentOption] = useState(serviceOptions[5]);
+
     const [isStartCounter, setIsStartCounter] = useState(false);
 
     function isRightYPosition(){
@@ -117,6 +196,19 @@ const Main = (props) => {
             }
         }
     }
+
+    const sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 800,
+        slidesPerRow: 1,
+        initialSlide: 0,
+        arrows: false,
+        slidesToShow: size > 1279 ? 2 : 1,
+        slidesToScroll: size > 1279 ? 2 : 1,
+        focusOnSelect: false,
+    }
+
 
     useEffect(() => {
         window.addEventListener('scroll', isRightYPosition);
@@ -135,6 +227,8 @@ const Main = (props) => {
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
+
+    const material = useStyles();
 
     return(
         <div className={classes.main}>
@@ -290,7 +384,7 @@ const Main = (props) => {
             </div>
             <div className={classes.comments} data-aos="fade">
                 <h2>ОТЗЫВЫ</h2>
-                <Slider className={classes.slider} dotsScroll={size > 1279 ? 2 : 1} centerMode dots infinite slidesToShow={size > 1279 ? 2 : 1} autoplaySpeed={5000} duration={300} autoplay arrows={false} swipe >
+                <Slider className={classes.slider} dotsClass={classes.dotsSlider} classes={material} {...sliderSettings} autoplay>
                     {comments.map((item, index) => <Comment key={"comment" + index} item={item}/>)}
                 </Slider>
             </div>
@@ -303,6 +397,7 @@ const Main = (props) => {
                 </div>
                 : <OrderForm/>}
             </div>
+            <h2 className={classes.contactHeader}>КОНТАКТЫ</h2>
             <Footer map={true} contacts={size > 1279 ? true : false}/>
         </div>
     );

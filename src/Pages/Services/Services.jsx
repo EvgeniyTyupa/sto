@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import HeaderPage from '../../Components/HeaderPage/HeaderPage';
 import { services } from '../../Utils/services';
 import classes from './Services.module.css';
@@ -10,7 +10,7 @@ import Footer from '../../Components/Footer/Footer';
 
 const StyledService = styled.div`
     background-image: ${({ background }) => `url(${background})`};
-    width: 301px;
+    width: ${({ size }) =>  size > 1300 ? "301px" : "286px"};
     height: 500px;
     background-size: cover;
     opacity: .8;
@@ -22,12 +22,27 @@ const StyledService = styled.div`
         opacity: 1;
         transform: translateY(-60px);
     }
+    @media screen and (max-width: 1279px){
+        opacity: 1;
+    }
 `;
 
 
 const Services = (props) => {
+    const [size, setSize] = useState(window.innerWidth);
+
+    useLayoutEffect(() => {
+        function updateSize(){
+            setSize(window.innerWidth);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    console.log(size)
+
     let servicesArr = services.map((item) => (
-        <StyledService background={item.img} className={classes.service}>
+        <StyledService size={size} background={item.img} className={classes.service}>
             <NavLink to={item.path}>
                 <div className={classes.blueblock}></div>
                 <div className={classes.serviceIcon}>

@@ -16,3 +16,9 @@
 .menuItem .active{
     border-left: 23px solid #35AAF9
 }
+
+@media screen and (max-width: 468px){
+    .links{
+        margin-top: 50px;
+    }
+}

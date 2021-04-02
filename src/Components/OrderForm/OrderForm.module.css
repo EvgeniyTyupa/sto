@@ -47,3 +47,25 @@
 .submit:hover{
     background-color: #2194e0 !important;
 }
+
+@media screen and (max-width: 1000px){
+    .inputsContainer{
+        flex-direction: column;
+    }
+    .block{
+        width: 100%;
+    }
+    .field + .field{
+        margin-top: 0;
+    }
+    .field{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 468px){
+    .submit{
+        align-self: center;
+    }
+    
+}

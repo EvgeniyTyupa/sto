@@ -84,3 +84,36 @@
     margin-block-end: 80px;
     margin-block-start: 0;
 }
+
+@media screen and (max-width: 1280px){
+    .services{
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: 70px;
+        margin-bottom: 0;
+    }
+    .points{
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-bottom: 25px;
+    }
+}
+@media screen and (max-width: 1279px){
+    .main{
+        margin-top: 140px;
+    }
+    .services{
+        justify-content: space-between;
+    }
+    .service a{
+        opacity: 1;
+    }
+    .service a span{
+        margin-bottom: 40px;
+    }
+    .serviceIcon{
+        position: absolute;
+        top: 30%;
+        left: 35%;
+    }
+}

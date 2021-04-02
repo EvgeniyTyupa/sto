@@ -27,9 +27,35 @@ body{
   opacity: 0;
 }
 
+.slick-slide{
+  outline: none !important;
+}
+.slick-active button{
+  background-color: #35AAF9 !important;
+}
+
 
 @media screen and (max-width: 1279px){
   .carousel-track{
     height: 402px !important;
+  }
+}
+@media screen and (max-width: 1000px){
+  .carousel-track{
+    height: 522px !important;
+  }
+}
+@media screen and (max-width: 756px){
+  .carousel-track{
+    height: 622px !important;
+  }
+}
+
+@media screen and (max-width: 468px){
+  .carousel-initialized{
+    padding: 0 !important;
+  }
+  .carousel-item{
+    z-index: 2;
   }
 }

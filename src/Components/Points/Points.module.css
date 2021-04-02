@@ -33,10 +33,40 @@
     font-size: 18px;
     font-family: 'Gilroy-Light';
 }
+.pointsLineMobile{
+    display: none;
+}
 
 @media screen and (max-width: 1280px){
     .points{
         padding-left: 0;
         padding-right: 0px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .pointsLine{
+        display: none;
+    }
+    .pointsLineMobile{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 35px;
+    }
+    .pointBlock{
+        width: 49%;
+    }
+}
+
+@media screen and (max-width: 658px) {
+    .pointsLineMobile{
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .pointBlock{
+        width: 100%;
+        margin-bottom: 55px;
     }
 }

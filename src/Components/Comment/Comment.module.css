@@ -32,3 +32,10 @@
         padding: 30px 45px;
     }
 }
+@media screen and (max-width: 468px){
+    .main{
+        width: 100%;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}

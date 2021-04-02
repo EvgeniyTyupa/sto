@@ -133,3 +133,23 @@
         box-shadow: 0 0 29px -10px grey;
     }
 }
+
+@media screen and (max-width: 468px) {
+    .mobileMenu a{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .mobileMenu a{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 350px){
+    .mobileMenu a{
+        font-size: 13px;
+    }
+    .phone{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

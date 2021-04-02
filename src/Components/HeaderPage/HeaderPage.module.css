@@ -45,3 +45,17 @@
     margin-block-end: 0;
     text-transform: uppercase;
 }
+
+@media screen and (max-width: 1280px){
+    .main{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+}
+@media screen and (max-width: 468px){
+    .main{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
