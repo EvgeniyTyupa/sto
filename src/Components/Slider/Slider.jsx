@@ -14,6 +14,7 @@ const StyledSlide = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    outline: none !important;
 `;
 
 
@@ -44,7 +45,10 @@ const useStyles = makeStyles((theme) => ({
         '& .slick-track': {
           display: 'flex !important',
           alignItems: 'center',
-          width: "100%"
+          width: "100%",
+          '@media screen and (max-width:1279px)':{
+              alignItems: 'flex-start'
+          }
         },
         '& .slick-track img': {
             width: "100%"
@@ -54,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
           height: '40px',
           width: 'auto',
           color: '#4B5EA3',
-          zIndex: 1560,
+          zIndex: 19,
           borderSize: 10,
           borderRadius: '50%',
           position: "absolute",
@@ -87,6 +91,9 @@ const useStyles = makeStyles((theme) => ({
           maxHeight: 'calc(100vh - 64px)',
           margin: '0 auto',
         },
+        '@media screen and (max-width:1279px)': {
+            width: "100%"
+        }
     },
     sliderImageCarousel: {
         width: "100%",
@@ -98,10 +105,16 @@ const useStyles = makeStyles((theme) => ({
         '& .slick-prev': {
           right: 100,
           transform: 'rotate(180deg)',
+          '@media screen and (max-width: 468px)': {
+              left: "0 !important",
+          }
         },
         '& .slick-next': {
           right: 20,
           transform: 'unset !important',
+          '@media screen and (max-width: 468px)': {
+            right: 0
+        }
         },
         '& .slick-track': {
           display: 'flex !important',
@@ -116,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
           height: '40px',
           width: 'auto',
           color: '#4B5EA3',
-          zIndex: 1560,
+          zIndex: 19,
           borderSize: 10,
           borderRadius: '50%',
           position: "absolute",
@@ -132,6 +145,9 @@ const useStyles = makeStyles((theme) => ({
             transform: "rotate(180deg)",
             opacity: ".8",
             transitionDuration: ".3s",
+            '@media screen and (max-width: 468px)': {
+                left: "0 !important",
+            }
         },
         '& .slick-prev:hover': {
             opacity: 1  

@@ -36,6 +36,9 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+.menuItem a:hover{
+    background-color: #e8f6ff ;
+}
 .activeLink{
     color: white !important;
     background-color: #35AAF9 !important;
@@ -147,4 +150,97 @@
     margin-block-start: 0;
     font-size: 40px;
     font-family: 'GothamPro-Bold';
+}
+.serviceImgMobile{
+    display: none;
+}
+
+@media screen and (max-width: 1280px){
+    .infoMain{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .works{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 1279px){
+    .main{
+        margin-top: 140px;
+    }
+    .infoMain{
+        flex-direction: column;
+        margin-top: 50px;
+    }
+    .leftSide{
+        width: 100%;
+        margin-right: 0;      
+    }
+    .sale{
+        display: none;
+    }
+    .content{
+        width: 100%;
+        margin-top: 50px;
+    }
+    .contentImages{
+        display: none;
+    }
+    .serviceImgMobile{
+        display: block;
+    }
+    .info{
+        width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .content h3{
+        margin-left: 0;
+        margin-top: 35px;
+    }
+    .contentBot{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 568px){
+    .info ul{
+        padding: 0;
+    }
+    .serviceImgMobile{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 468px){
+    .infoMain{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .works{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .orderBut{
+        margin-top: 40px;
+        margin-bottom: 70px;
+    }
+    .works h2{
+        font-size: 32px;
+    }
+    .info li{
+        font-size: 16px;
+    }
+    .content h3{
+        font-size: 25px;
+    }
+    .factors li{
+        font-size: 16px;
+    }
+    .dop p{
+        font-size: 16px;
+    }
 }

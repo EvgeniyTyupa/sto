@@ -53,9 +53,24 @@
     }
     
 }
+@media screen and (max-width: 568px){
+    .navigation{
+        flex-wrap: wrap;
+    }
+    .main{
+        height: max-content;
+    }
+}
 @media screen and (max-width: 468px){
     .main{
         padding-left: 25px;
         padding-right: 25px;
+    }
+    .main h2{
+        font-size: 25px;
+        margin-block-start: 35px;
+    }
+    .navigation a{
+        font-size: 14px;
     }
 }

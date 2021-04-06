@@ -41,11 +41,13 @@ const Service = (props) => {
             <div className={classes.infoMain}>
                 <div className={classes.leftSide}>
                     <div className={classes.menu}>
-                        <div className={classes.menuItem}>
-                            {services.map((item, index) => {
-                                return <NavLink key={"link" + index} to={item.path} activeClassName={classes.activeLink}>{item.text}</NavLink>
-                            })}
-                        </div>
+                        {services.map((item, index) => {
+                            return (
+                                <div className={classes.menuItem}>
+                                    <NavLink key={"link" + index} to={item.path} activeClassName={classes.activeLink}>{item.text}</NavLink>
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className={classes.sale}>
                         <p>Не упустите возможность получить <strong>скидку</strong></p>
@@ -61,6 +63,7 @@ const Service = (props) => {
                             <img src={img2}/>
                         </div>
                         <div className={classes.info}>
+                            <img src={img1} className={classes.serviceImgMobile}/>
                             <h3>{currentService && currentService.headerPoints}</h3>
                             <ul>
                                 {currentService && currentService.points.map((item, index) => {
@@ -70,6 +73,7 @@ const Service = (props) => {
                         </div>
                     </div>
                     <div className={classes.contentBot}>
+                        <img src={img2} className={classes.serviceImgMobile}/>
                         {(currentService && currentService.headerFactor) && <h3>{currentService.headerFactor}</h3>}
                         {(currentService && currentService.factors) && <ul className={classes.factors}>
                             {currentService.factors.map((item, index) => {

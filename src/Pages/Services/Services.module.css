@@ -117,3 +117,24 @@
         left: 35%;
     }
 }
+
+@media screen and (max-width: 468px){
+    .services{
+        justify-content: center;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .points h2{
+        font-size: 30px;
+    }
+    .service{
+        margin-bottom: 50px;
+    }
+    .serviceIcon{
+        position: initial;
+    }
+    .points{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}

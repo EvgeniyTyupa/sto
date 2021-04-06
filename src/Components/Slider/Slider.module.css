@@ -9,6 +9,7 @@
     padding-left: 75px;
     padding-right: 75px;
     box-sizing: border-box;
+    outline: none !important;
 }
 .slide h5{
     font-size: 20px;
@@ -45,4 +46,36 @@
 }
 .currentImageNumber{
     font-size: 70px !important;
+}
+@media screen and (max-width:1279px){
+    .main{
+        flex-direction: column;
+    }
+    .slide{
+        height: max-content;
+    }
+    .sliderImages{
+        width: 100%;
+    }
+}
+@media screen and (max-width:468px){
+    .slide{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .slide h5{
+        text-align: center;
+    }
+    .imageCounter{
+        position: absolute;
+        right: auto;
+        left: 35%;
+        bottom: 40px;
+        margin-top: auto;
+    }
+}
+@media screen and (max-width:350px){
+    .imageCounter{
+        left: 30%;
+    }
 }

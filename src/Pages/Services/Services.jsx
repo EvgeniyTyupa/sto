@@ -25,6 +25,9 @@ const StyledService = styled.div`
     @media screen and (max-width: 1279px){
         opacity: 1;
     }
+    @media screen and (max-width: 468px){
+        height: 365px;
+    }
 `;
 
 
@@ -39,7 +42,6 @@ const Services = (props) => {
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    console.log(size)
 
     let servicesArr = services.map((item) => (
         <StyledService size={size} background={item.img} className={classes.service}>
@@ -66,7 +68,7 @@ const Services = (props) => {
                 <h2>ПОЧЕМУ ВЫБИРАЮТ НАС</h2>
                 <Points/>
             </div>
-            <Footer map={true} contacts={true}/>
+            <Footer map={true} contacts={size > 1279 ? true : false}/>
         </div>
     );
 }
