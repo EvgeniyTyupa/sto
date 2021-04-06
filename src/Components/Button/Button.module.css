@@ -12,3 +12,11 @@
 .main:hover{
     background-color: #2194e0 !important;
 }
+
+
+@media screen and (max-width: 1000px) {
+    .main{
+        width: 100%;
+        min-width: none;
+    }
+}

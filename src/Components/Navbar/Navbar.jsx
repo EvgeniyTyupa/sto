@@ -23,7 +23,7 @@ const Navbar = (props) => {
                 <div className={classes.container}>
                     <div className={classes.block}>
                         <img src={clockicon}/>
-                        <span>Пн - Пт: с 09:00 до 19:00   Сб: с 09:00 до 18:00</span>
+                        <span>Пн - Пт: с 09:00 до 18:00   Сб: с 09:00 до 18:00</span>
                     </div>
                     <div className={classes.block}>
                         <img src={phoneicon}/>

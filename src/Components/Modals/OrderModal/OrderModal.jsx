@@ -34,6 +34,10 @@ const StyledImage = styled.div`
     width: 48%;
     background-size: cover;
     background-position: center;
+
+    @media screen and (max-width: 658px){
+        display: none;
+    }
 `;
 
 const OrderModal = (props) => {

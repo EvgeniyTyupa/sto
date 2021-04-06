@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HttpsRedirect from 'react-https-redirect';
 
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
@@ -14,19 +15,22 @@ const Services = lazy(() => import('./Pages/Services/Services'));
 const App = (props) => {
   return(
     <BrowserRouter> 
-      <div className='main'>
-        <Navbar/>
-        <Suspense fallback={Preloader}>
-          <ScrollIntoView>
-            <Switch>
-              <Route exact path="/" render={()=><Main/>}/>
-              <Route exact path="/services" render={()=><Services/>}/>
-              <Route path="/services/:service" render={()=><Service/>}/>
-              <Route path="/contacts" render={()=><Contacts/>}/>
-            </Switch>
-          </ScrollIntoView>
-        </Suspense>
-      </div>
+      <HttpsRedirect>
+        <div className='main'>
+          <Navbar/>
+          <Suspense fallback={Preloader}>
+            <ScrollIntoView>
+              <Switch>
+                <Route exact path="/" render={()=><Main/>}/>
+                <Route exact path="/services" render={()=><Services/>}/>
+                <Route path="/services/:service" render={()=><Service/>}/>
+                <Route path="/contacts" render={()=><Contacts/>}/>
+              </Switch>
+            </ScrollIntoView>
+          </Suspense>
+        </div>
+      </HttpsRedirect>
+      
     </BrowserRouter>
   )
 }

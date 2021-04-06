@@ -190,6 +190,7 @@
     }
     .serviceImgMobile{
         display: block;
+        width: 100%;
     }
     .info{
         width: 100%;
