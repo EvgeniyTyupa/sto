@@ -239,9 +239,7 @@ const Main = (props) => {
             <div className={classes.title}>
                 <h1 data-aos="fade-right">АВТОСЕРВИС <br/> В ЗАПОРОЖЬЕ</h1>
                 <p data-aos="fade" data-aos-duration="1500" data-aos-delay="800">Ваше авто в надежных руках</p>
-                <Button data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                    <Link to="/#order">Записаться</Link>
-                </Button>
+                <Link to="/#order" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">Записаться</Link>
             </div>
             <div className={classes.services}>
                 <h2 data-aos="fade-up">НАШИ УСЛУГИ</h2>
@@ -356,7 +354,7 @@ const Main = (props) => {
                     </div>
                     <div className={classes.termBlock}>
                         <img src={buy}/>
-                        <span>Приехать, переобуться <br/>либо отрегулировать углы <br/>установки колес <br/>  сэкономить деньги.</span>
+                        <span>Приехать, переобуться <br/>либо отрегулировать углы <br/>установки колес <br/> и сэкономить деньги.</span>
                     </div>
                 </div>
                 <div className={classes.termMobile}>
@@ -384,7 +382,7 @@ const Main = (props) => {
             </div>
             <div className={classes.comments} data-aos="fade">
                 <h2>ОТЗЫВЫ</h2>
-                <Slider className={classes.slider} dotsClass={classes.dotsSlider} classes={material} {...sliderSettings} autoplay>
+                <Slider className={classes.slider} dotsClass={classes.dotsSlider} classes={material} {...sliderSettings}>
                     {comments.map((item, index) => <Comment key={"comment" + index} item={item}/>)}
                 </Slider>
             </div>

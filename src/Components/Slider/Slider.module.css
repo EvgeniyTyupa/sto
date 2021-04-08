@@ -53,6 +53,12 @@
     }
     .slide{
         height: max-content;
+        padding: 0;
+    }
+    .slide h5{
+        padding-left: 50px;
+        padding-right: 50px;
+        box-sizing: border-box;
     }
     .sliderImages{
         width: 100%;
@@ -60,11 +66,16 @@
 }
 @media screen and (max-width:468px){
     .slide{
-        padding-left: 50px;
-        padding-right: 50px;
+        
     }
     .slide h5{
         text-align: center;
+
+    }
+    .slide p{
+        padding-left: 25px;
+        padding-right: 25px;
+        box-sizing: border-box;
     }
     .imageCounter{
         position: absolute;

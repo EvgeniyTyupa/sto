@@ -43,8 +43,8 @@ const Services = (props) => {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
 
-    let servicesArr = services.map((item) => (
-        <StyledService size={size} background={item.img} className={classes.service}>
+    let servicesArr = services.map((item, index) => (
+        <StyledService key={"service" + index} size={size} background={item.img} className={classes.service}>
             <NavLink to={item.path}>
                 <div className={classes.blueblock}></div>
                 <div className={classes.serviceIcon}>

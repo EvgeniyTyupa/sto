@@ -108,11 +108,20 @@
     position: relative;
     top: -30px;
 }
+.selectMobile{
+    display: none;
+}
 @media screen and (max-width: 1279px){
     .window{
         width: 95%;
-        height: 55%;
+        height: 68%;
     }   
+    .error{
+        display: none;
+    }
+    .selectMobile{
+        display: initial;
+    }
 }
 @media screen and (max-width: 1000px){
     .field{
@@ -131,7 +140,27 @@
 }
 
 @media screen and (max-width: 658px){
+    .window{
+        height: 90vh;
+    }
     .window form{
         width: 100%;
+    }
+    .done{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 400px){
+    .window{
+        height: 95vh;
+    }
+    .window form{
+        padding: 15px;
+    }
+    .window form h2{
+        font-size: 18px;
+    }
+    .error{
+        display: none;
     }
 }

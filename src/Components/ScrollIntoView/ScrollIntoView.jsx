@@ -7,7 +7,10 @@ const ScrollIntoView = (props) => {
     },[]);
 
     useEffect(()=>{
-        window.scrollTo(0, 0);
+        if(!props.location.pathname.includes("/services/")){
+            window.scrollTo(0, 0);
+        }
+        
     }, [props.location]);
 
     return(

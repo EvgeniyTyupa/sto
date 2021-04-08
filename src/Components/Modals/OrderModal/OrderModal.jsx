@@ -4,7 +4,7 @@ import classes from './OrderModal.module.css';
 import img1 from '../../../Assets/Images/Modal/im1.jpg';
 import img2 from '../../../Assets/Images/Modal/im2.jpg';
 import img3 from '../../../Assets/Images/Modal/im3.jpg';
-import { Button, TextField, makeStyles } from '@material-ui/core';
+import { Button, TextField, makeStyles, MenuItem } from '@material-ui/core';
 import styled from 'styled-components';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
 import { makeOrder, setIsOrdered } from '../../../Redux/commonReducer';
 import Preloader from '../../Preloader/Preloader';
+import { services } from '../../../Utils/services';
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -93,6 +94,11 @@ const OrderModal = (props) => {
                     <div className={classes.field}>
                         <TextField inputRef={register({required: true, email: true})} error={errors.email ? true : false} classes={material} name="email" variant="outlined" label="Эл. адрес"/>
                         {errors.email && errors.email.type === "required" && <p className={classes.error}>Обязательное поле!</p>}
+                    </div>
+                    <div className={classes.field + " " + classes.selectMobile}>
+                        <TextField name="service" classes={material} select variant="outlined" label="Вид сервиса">
+                            {services.map((item, index) => <MenuItem key={"menuItem" + index} value={item.text}>{item.text}</MenuItem>)}
+                        </TextField>
                     </div>
                     <Button type="submit">Записаться</Button>
                 </form> :

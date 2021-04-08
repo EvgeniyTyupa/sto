@@ -14,6 +14,11 @@ import SliderWorks from '../../../Components/Slider/Slider';
 import OrderModal from '../../../Components/Modals/OrderModal/OrderModal';
 import OrderSale from '../../../Components/Modals/OrderSale/OrderSale';
 
+import phone from '../../../Assets/Images/Source/phone.svg';
+import chat from '../../../Assets/Images/Source/chat.svg';
+import calendar from '../../../Assets/Images/Source/calendar.svg';
+import buy from '../../../Assets/Images/Source/buy.svg';
+
 const Service = (props) => {
     const [currentService, setCurrentService] = useState(null);
     let points = [];
@@ -43,7 +48,7 @@ const Service = (props) => {
                     <div className={classes.menu}>
                         {services.map((item, index) => {
                             return (
-                                <div className={classes.menuItem}>
+                                <div className={classes.menuItem} key={"menu" + index}>
                                     <NavLink key={"link" + index} to={item.path} activeClassName={classes.activeLink}>{item.text}</NavLink>
                                 </div>
                             )

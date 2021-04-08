@@ -29,6 +29,11 @@ body{
 
 .slick-slide{
   outline: none !important;
+  height: 0;
+}
+
+.slick-active {
+  height: max-content;
 }
 .slick-active button{
   background-color: #35AAF9 !important;
@@ -38,6 +43,9 @@ body{
 @media screen and (max-width: 1279px){
   .carousel-track{
     height: 402px !important;
+  }
+  .MuiPopover-root{
+    z-index: 11700 !important;
   }
 }
 @media screen and (max-width: 1000px){
@@ -49,6 +57,7 @@ body{
   .carousel-track{
     height: 622px !important;
   }
+
 }
 
 @media screen and (max-width: 468px){

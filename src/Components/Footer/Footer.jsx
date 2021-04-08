@@ -42,7 +42,7 @@ const Footer = (props) => {
                     <div className={classes.contactBlock}>
                         <img src={clockicon}/>
                         <div className={classes.textBlock}>
-                            <span>Пн - Пт: с 09:00 до 18:00</span>
+                            <span>Пн - Пт: с 09:00 до 19:00</span>
                             <span>Сб: с 09:00 до 18:000</span>
                         </div>
                     </div>
