@@ -46,6 +46,7 @@ const OrderModal = (props) => {
 
     const images = [img1, img2, img3];
     const [currentImage, setCurrentImage] = useState(null);
+    const [service, setService] = useState("");
 
     const getRandomIndex = (min, max) => {
         min = Math.ceil(min);
@@ -66,8 +67,13 @@ const OrderModal = (props) => {
     const material = useStyles();
 
     const onSubmit = (data, e) => {
+        data.service = service;
         props.makeOrder(data);
         e.target.reset();
+    }
+
+    const handleService = (event) => {
+        setService(event.target.value);
     }
 
     return(
@@ -96,8 +102,8 @@ const OrderModal = (props) => {
                         {errors.email && errors.email.type === "required" && <p className={classes.error}>Обязательное поле!</p>}
                     </div>
                     <div className={classes.field + " " + classes.selectMobile}>
-                        <TextField name="service" classes={material} select variant="outlined" label="Вид сервиса">
-                            {services.map((item, index) => <MenuItem key={"menuItem" + index} value={item.text}>{item.text}</MenuItem>)}
+                        <TextField name="service" onChange={handleService} classes={material} select variant="outlined" label="Вид сервиса">
+                            {services.map((item, index) => <MenuItem key={"menuItem" + index} selected={service === item.text} value={item.text}>{item.text}</MenuItem>)}
                         </TextField>
                     </div>
                     <Button type="submit">Записаться</Button>
