@@ -239,7 +239,7 @@ const Main = (props) => {
             <div className={classes.title}>
                 <h1 data-aos="fade-right">АВТОСЕРВИС <br/> В ЗАПОРОЖЬЕ</h1>
                 <p data-aos="fade" data-aos-duration="1500" data-aos-delay="800">Ваше авто в надежных руках</p>
-                <Link to="/#order" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">Записаться</Link>
+                <a href="#order" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">Записаться</a>
             </div>
             <div className={classes.services}>
                 <h2 data-aos="fade-up">НАШИ УСЛУГИ</h2>
