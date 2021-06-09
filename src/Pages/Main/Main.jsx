@@ -117,6 +117,12 @@ const useStyles = makeStyles((theme) => ({
 const Main = (props) => {
     const countRef = useRef();
 
+    const orderRef = useRef();
+    
+    const handleScrollToOrder = () => {
+        orderRef.current.scrollIntoView(); 
+    }
+
     const [size, setSize] = useState(window.outerWidth);
 
     useEffect(() => {
@@ -131,7 +137,7 @@ const Main = (props) => {
         },
         {
             name: "Егор",
-            text: "Летом заехал на этот автосервис. Изначально подумал: центр - цены космос, потом подумал, что и ехать особо не знаю куда и решил починится у них. Такое хорошее отношение и качественное обслуживание редко встречается. Продиагностировали, заменили стойку, отрегулировали фары. Вывод такой: при необходимости поеду опять туда же!!",
+            text: "Летом заехал на этот автосервис. Изначально подумал: центр - цены космос, потом подумал, что и ехать особо не знаю куда и решил починится у них. Такое хорошее отношение и качественное обслуживание редко встречается. Продиагностировали, заменили стойку, по двигателю отрегулировали клапана. Вывод такой: при необходимости поеду опять туда же!!",
             img: user2
         },
         {
@@ -239,7 +245,7 @@ const Main = (props) => {
             <div className={classes.title}>
                 <h1 data-aos="fade-right">АВТОСЕРВИС <br/> В ЗАПОРОЖЬЕ</h1>
                 <p data-aos="fade" data-aos-duration="1500" data-aos-delay="800">Ваше авто в надежных руках</p>
-                <a href="#order" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">Записаться</a>
+                <Button onClick={handleScrollToOrder} data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">Записаться</Button>
             </div>
             <div className={classes.services}>
                 <h2 data-aos="fade-up">НАШИ УСЛУГИ</h2>
@@ -386,7 +392,7 @@ const Main = (props) => {
                     {comments.map((item, index) => <Comment key={"comment" + index} item={item}/>)}
                 </Slider>
             </div>
-            <div className={classes.order} data-aos="fade-down" id="order">
+            <div className={classes.order} data-aos="fade-down" id="order" ref={orderRef}>
                 <h2>ЗАПИСАТЬСЯ НА СЕРВИС</h2>
                 {props.isOrdered ? 
                 <div className={classes.done} data-aos="fade" data-aos-duration={300}>

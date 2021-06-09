@@ -47,6 +47,9 @@
 .submit:hover{
     background-color: #2194e0 !important;
 }
+.textarea{
+    margin-top: 20px;
+}
 
 @media screen and (max-width: 1000px){
     .inputsContainer{

@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './BurgerMenu.module.css';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import insta from '../../../../Assets/Images/Icons/insta.svg';
+import Insta from '../../../../Assets/Images/Icons/Insta';
 
 const StyledMenu = styled.div`
     width: 60%;
@@ -14,6 +14,7 @@ const StyledMenu = styled.div`
     transition-duration: .3s;
     position: fixed;
     top: 0;
+    z-index: 9;
     left: 0;
     padding-left: 5%;
     padding-top: 20%;
@@ -56,7 +57,7 @@ const BurgerMenu = (props) => {
                 
             </div>
             <a target="_blank" href="https://www.instagram.com/stobshzpua/" onClick={props.setOpen}>
-                <img src={insta}/>
+                <Insta/>
             </a>
         </StyledMenu>
     );

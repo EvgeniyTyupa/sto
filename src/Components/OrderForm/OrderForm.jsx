@@ -72,7 +72,7 @@ const OrderForm = (props) => {
                 </div>
                 <div className={classes.block}>
                     <div className={classes.field}>
-                        <TextField classes={material} label="Марка и модель авто" variant="outlined" name="car" inputRef={register}/>
+                        <TextField classes={material} label="Марка и модель авто" variant="outlined" name="auto" inputRef={register}/>
                     </div>
                     <div className={classes.field}>
                         <TextField classes={material} error={errors.email ? true : false} label="Эл. адрес*" variant="outlined" name="email" inputRef={register({required: true})}/>
@@ -109,6 +109,9 @@ const OrderForm = (props) => {
                         }}  name="time" inputRef={register}/>
                     </div>
                 </div>
+            </div>
+            <div className={classes.field + " " + classes.textarea}>
+                <TextField inputRef={register} multiline rows={5} name="message" label="Ваше сообщение" variant="outlined" classes={material}/>
             </div>
             <Button className={classes.submit} type="submit">Записаться</Button>
         </form>

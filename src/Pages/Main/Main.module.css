@@ -44,7 +44,7 @@
     border-radius: 0;
     margin-top: 58px;
 }
-.title a{
+/* .title a{
     background-color: #35AAF9;
     color: white;
     font-family: 'Gilroy-Medium';
@@ -59,9 +59,9 @@
     justify-content: center;
     align-items: center;
     transition-duration: .3s;
-}
-.title a:hover{
-    background-color: #2194e0;
+} */
+.title button:hover{
+    background-color: #2194e0 !important;
 }
 
 /* SERVICES */
@@ -745,6 +745,10 @@
     .title p{
         font-size: 16px;
     }
+    .title button{
+        margin-top: auto;
+        margin-bottom: 15%;
+    }
     .options{
         width: 100%;
         margin-top: 50px;
@@ -847,6 +851,9 @@
 }
 
 @media screen and (max-width: 350px){
+    .title button{
+        margin-bottom: 25%;
+    }
     .aboutText h3{
         margin-block-end: 30px;
     }

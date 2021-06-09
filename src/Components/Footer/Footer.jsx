@@ -7,9 +7,9 @@ import phoneicon from '../../Assets/Images/Icons/phone.svg';
 import locationicon from '../../Assets/Images/Icons/location.svg';
 import mail from '../../Assets/Images/Icons/mail.svg';
 import logo from '../../Assets/Images/Icons/logo_light.svg';
-import insta from '../../Assets/Images/Icons/insta.svg';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import insta from '../../Assets/Images/Icons/insta.png'
 
 
 const Footer = (props) => {
@@ -84,8 +84,9 @@ const Footer = (props) => {
                         <a href="mailto:stobsh@gmail.com">stobsh@gmail.com</a>
                     </div>
                 </div>
-                <a target="_blank" href="https://www.instagram.com/stobshzpua/" className={classes.insta}>
+                <a rel="noreferrer" target="_blank" href="https://www.instagram.com/stobshzpua/" className={classes.insta}>
                     <img src={insta}/>
+                    instagram
                 </a>
             </div>
         </footer>

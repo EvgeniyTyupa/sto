@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Burger from './Burger/Burger';
+import insta from '../../Assets/Images/Icons/insta.png'
 
 
 const Navbar = (props) => {
@@ -46,14 +47,21 @@ const Navbar = (props) => {
                         <NavLink to="/services">УСЛУГИ</NavLink>
                         <NavLink to="/contacts">КОНТАКТЫ</NavLink>
                     </div>
-                    <span data-aos="fade-up" data-aos-duration="1200">СТО НА БУЛЬВАРЕ ШЕВЧЕНКО</span>
+                    <a data-aos="fade-up" data-aos-duration="1200"  rel="noreferrer" target="_blank" href="https://www.instagram.com/stobshzpua/" className={classes.insta}>
+                        <img src={insta}/>
+                        instagram
+                    </a>
                 </div>
             </div>
             <div className={classes.mobileHeader}>
                 <Burger/>
                 <div className={classes.block}>
+                    <a data-aos="fade-up" data-aos-duration="1200"  rel="noreferrer" target="_blank" href="https://www.instagram.com/stobshzpua/" className={classes.insta}>
+                        <img src={insta}/>
+                        instagram
+                    </a>
                     <img src={locationicon}/>
-                    <Link to="/#map">СТО <br/> НА БШ</Link>
+                    <Link to="/#map" target="_self">СТО <br/> НА БШ</Link>
                 </div>
                 
             </div>
